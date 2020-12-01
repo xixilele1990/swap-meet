@@ -149,23 +149,18 @@ def test_swap_first_item_from_their_empty_returns_false():
     assert len(jolie.inventory) is 0
     assert result is False
 
-def test_clothing_has_default_category():
+def test_clothing_has_default_category_and_to_str():
     cloth = Clothing()
-
-    # These two asserts are redundant, and typically
-    # we would only need one of them
-    # We're including both in order to give you
-    # a hint about how to make it ;)
     assert cloth.category is "Clothing"
-    assert cloth.category is Item.CLOTHING
-    # Meta: is this cool?????? should this constant be in the child class??
+    assert str(cloth) == "The finest clothing you could wear."
 
-def test_decor_has_default_category():
+
+def test_decor_has_default_category_and_to_str():
     decor = Decor()
     assert decor.category is "Decor"
-    assert decor.category is Item.DECOR
+    assert str(decor) == "Something to decorate your space."
 
-def test_electronics_has_default_category():
+def test_electronics_has_default_category_and_to_str():
     electronics = Electronics()
     assert electronics.category is "Electronics"
-    assert electronics.category is Item.ELECTRONICS
+    assert str(electronics) == "A gadget full of buttons and secrets."
