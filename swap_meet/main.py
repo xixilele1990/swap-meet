@@ -33,8 +33,24 @@ class Vendor:
 
 class Item:
 
+    CLOTHING = "Clothing"
+    DECOR = "Decor"
+    ELECTRONICS = "Electronics"
+
     def __init__(self, category=""):
         self.category = category
 
     def __str__(self):
         return "Hello World!"
+
+class Clothing(Item):
+    def __init__(self):
+        self.category = Item.CLOTHING
+
+class Decor(Item):
+    def __init__(self):
+        self.category = Item.DECOR
+
+class Electronics(Item):
+    def __init__(self):
+        self.category = Item.ELECTRONICS

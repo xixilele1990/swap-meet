@@ -1,5 +1,5 @@
 import pytest
-from swap_meet.main import Vendor, Item
+from swap_meet.main import Vendor, Item, Clothing, Decor, Electronics
 
 def test_vendor_has_inventory():
     vendor = Vendor()
@@ -148,3 +148,24 @@ def test_swap_first_item_from_their_empty_returns_false():
     assert len(fatimah.inventory) is 3
     assert len(jolie.inventory) is 0
     assert result is False
+
+def test_clothing_has_default_category():
+    cloth = Clothing()
+
+    # These two asserts are redundant, and typically
+    # we would only need one of them
+    # We're including both in order to give you
+    # a hint about how to make it ;)
+    assert cloth.category is "Clothing"
+    assert cloth.category is Item.CLOTHING
+    # Meta: is this cool?????? should this constant be in the child class??
+
+def test_decor_has_default_category():
+    decor = Decor()
+    assert decor.category is "Decor"
+    assert decor.category is Item.DECOR
+
+def test_electronics_has_default_category():
+    electronics = Electronics()
+    assert electronics.category is "Electronics"
+    assert electronics.category is Item.ELECTRONICS
