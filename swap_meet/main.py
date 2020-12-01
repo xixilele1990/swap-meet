@@ -41,6 +41,20 @@ class Vendor:
                 best = item
         return best
 
+    def swap_best_by_category(self, other, my_priority, their_priority):
+        my_best = self.get_best_by_category(their_priority)
+        their_best = other.get_best_by_category(my_priority)
+
+        if my_best and their_best:
+            self.inventory.remove(my_best)
+            self.inventory.append(their_best)
+
+            other.inventory.remove(their_best)
+            other.inventory.append(my_best)
+            return True
+        else:
+            return False
+
 class Item:
 
     def __init__(self, category=""):
