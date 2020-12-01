@@ -3,8 +3,9 @@
 Entire concept: two users with an inventory should be able to swap items.
 
 ```
+Messily written notes to communicate the classes and their members
+
 vendor
-	need (category) (optional)
 	inventory
 	add item
 	remove from inventory
@@ -14,13 +15,12 @@ item
 > clothing
 > decor
 > electronics
-	category: str
+    category: str
     condition: float
     to_s
-	<!-- description: str, relies on age
+	<!-- optionals: description: str, relies on age
 	age: int
-	condition: string
-    long_description(): based on condition and age -->
+        long_description(): based on condition and age -->
 ```
 
 
