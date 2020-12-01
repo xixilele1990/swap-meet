@@ -21,6 +21,18 @@ class Vendor:
                 picked_items.append(item)
         return picked_items
 
+    def swap_first_item(self, other):
+        if len(self.inventory) and len(other.inventory):
+            my_first_item = self.inventory[0]
+            their_first_item = other.inventory[0]
+            self.remove(my_first_item)
+            other.remove(their_first_item)
+            self.add(their_first_item)
+            other.add(my_first_item)
+            return True
+        else:
+            return False
+
 class Item:
 
     def __init__(self, category=""):
