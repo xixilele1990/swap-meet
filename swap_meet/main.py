@@ -23,10 +23,8 @@ class Vendor:
 
     def swap_first_item(self, other):
         if len(self.inventory) and len(other.inventory):
-            my_first_item = self.inventory[0]
-            their_first_item = other.inventory[0]
-            self.remove(my_first_item)
-            other.remove(their_first_item)
+            my_first_item = self.remove(self.inventory[0])
+            their_first_item = other.remove(other.inventory[0])
             self.add(their_first_item)
             other.add(my_first_item)
             return True
