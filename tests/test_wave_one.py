@@ -164,3 +164,53 @@ def test_electronics_has_default_category_and_to_str():
     electronics = Electronics()
     assert electronics.category is "Electronics"
     assert str(electronics) == "A gadget full of buttons and secrets."
+
+def test_items_have_condition_as_float():
+    items = [
+        Clothing(condition=3.5),
+        Decor(condition=3.5),
+        Electronics(condition=3.5)
+    ]
+    for item in items:
+        assert item.condition == pytest.approx(3.5)
+
+def test_best_by_category():
+    item_a = Clothing(condition=2.0)
+    item_b = Decor(condition=2.0)
+    item_c = Clothing(condition=4.0)
+    item_d = Decor(condition=5.0)
+    item_e = Clothing(condition=3.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c, item_d, item_e]
+    )
+
+    best_item = tai.get_best_by_category("Clothing")
+
+    assert best_item.category == "Clothing"
+    assert best_item.condition == pytest.approx(4.0)
+
+
+def test_best_by_category_no_matches_is_none():
+    item_a = Decor(condition=2.0)
+    item_b = Decor(condition=2.0)
+    item_c = Decor(condition=4.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    best_item = tai.get_best_by_category("Electronics")
+
+    assert best_item is None
+
+def test_best_by_category_with_duplicates():
+    item_a = Clothing(condition=2.0)
+    item_b = Clothing(condition=4.0)
+    item_c = Clothing(condition=4.0)
+    tai = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    best_item = tai.get_best_by_category("Clothing")
+
+    assert best_item.category == "Clothing"
+    assert best_item.condition == pytest.approx(4.0)

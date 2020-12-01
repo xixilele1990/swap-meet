@@ -31,6 +31,16 @@ class Vendor:
         else:
             return False
 
+    def get_best_by_category(self, category):
+        items = self.get_by_category(category)
+        if len(items) == 0:
+            return None
+        best = items[0]
+        for item in items:
+            if item.condition > best.condition:
+                best = item
+        return best
+
 class Item:
 
     def __init__(self, category=""):
@@ -40,19 +50,24 @@ class Item:
         return "Hello World!"
 
 class Clothing(Item):
-    def __init__(self):
+    def __init__(self, condition=0.0):
         self.category = "Clothing"
+        self.condition = condition
     def __str__(self):
         return "The finest clothing you could wear."
 
 class Decor(Item):
-    def __init__(self):
+    def __init__(self, condition=0.0):
         self.category = "Decor"
+        self.condition = condition
+
     def __str__(self):
         return "Something to decorate your space."
 
 class Electronics(Item):
-    def __init__(self):
+    def __init__(self, condition=0.0):
         self.category = "Electronics"
+        self.condition = condition
+
     def __str__(self):
         return "A gadget full of buttons and secrets."
