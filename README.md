@@ -164,6 +164,24 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 
 ### Wave 1
 
+The first two tests in wave 1 imply:
+
+- There is a class named `Vendor`
+- Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
+- When we create a `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
+
+
+The remaining tests in wave 1 imply:
+
+- Every instance of `Vendor` has an instance method named `add`, which takes in one item
+- This method adds the item to the `inventory`
+- This method returns the item that was added
+
+- Similarly, every instance of `Vendor` has an instance method named `remove`, which takes in one item
+- This method removes the matching item from the `inventory`
+- This method returns the item that was removed
+- If there is no matching item in the `inventory`, the method should return `False`
+
 Entire concept: two users with an inventory should be able to swap items.
 
 ```
