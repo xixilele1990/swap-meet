@@ -186,16 +186,31 @@ Entire concept: two users with an inventory should be able to swap items.
 
 ### Wave 2
 
-The first three tests in wave 2 imply:
+The first tests in wave 2 imply:
 
 - There is a class named `Item`
 - Each `Item` will have an attribute named `category`, which is an empty string by default
 - When we initialize an instance of `Item`, we can optionally pass in a string with the keyword argument `category`
+- Instances of `Vendor` have an instance method named `get_by_category`
+    - It takes one argument: a string, representing a category
+    - This method returns a list of `Item`s in the inventory with that category
 
-The last test in wave 2 implies:
+### Wave 3
+
+The first test in wave 3 implies:
 
 - When we stringify an instance of `Item` using `str()`, it returns `"Hello World!"`
     - This implies `Item` overrides its stringify method
+
+The remaining tests in wave 3 imply:
+
+- Instances of `Vendor` have an instance method named `swap_first_item`
+    - It takes one argument: an instance of another `Vendor`, representing the friend that the vendor is swapping with
+    - This method considers the first item in the instance's `inventory`, and the first item in the friend's `inventory`
+    - It removes the first item from its `inventory`, and adds the friend's first item
+    - It removes the first item from the friend's `inventory`, and adds the instances first item
+    - It returns `True`
+    - If either itself or the friend have an empty `inventory`, the method returns `False`
 
 
 

@@ -34,9 +34,3 @@ def test_get_no_matching_items_by_category():
     assert len(items) is 0
 
 
-def test_item_overrides_to_string():
-    item = Item()
-
-    stringified_item = str(item)
-
-    assert stringified_item == "Hello World!"
