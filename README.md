@@ -168,7 +168,7 @@ The first two tests in wave 1 imply:
 
 - There is a class named `Vendor`
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
-- When we create a `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
+- When we create initialize an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
 
 
 The remaining tests in wave 1 imply:
@@ -183,6 +183,21 @@ The remaining tests in wave 1 imply:
 - If there is no matching item in the `inventory`, the method should return `False`
 
 Entire concept: two users with an inventory should be able to swap items.
+
+### Wave 2
+
+The first three tests in wave 2 imply:
+
+- There is a class named `Item`
+- Each `Item` will have an attribute named `category`, which is an empty string by default
+- When we initialize an instance of `Item`, we can optionally pass in a string with the keyword argument `category`
+
+The last test in wave 2 implies:
+
+- When we stringify an instance of `Item` using `str()`, it returns `"Hello World!"`
+    - This implies `Item` overrides its stringify method
+
+
 
 ```
 Messily written notes to communicate the classes and their members
