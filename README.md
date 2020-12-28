@@ -1,16 +1,16 @@
 # Swap Meet
 
-## Learning Goals
+## Skills Assessed
 
-- we can make classes
-- can make classes have instance methods and attributes
-- an instance of a class can "use"/reference an instance of another class/same class
-- an attribute can be an array of instances
-  - we can do interesting things with this array of instances
-- a class can override something from Object, because every class inherits from Object
-- we can implement inheritance and use it
-  - we can observe that ducktyping works!!
-  - we can override things from that super class
+- Following directions and reading comprehension
+- Reading tests
+- Creating classes
+  - Classes have attributes and instance methods
+- Importing modules
+- Working with attributes that are lists of instances
+- Implementing instance methods that interact with other instances and objects
+- Implementing inheritance
+- Overriding methods from superclasses and Object
 
 ## Goal
 
