@@ -225,82 +225,63 @@ The remaining tests in wave 3 imply:
     - If either itself or the friend have an empty `inventory`, the method returns `False`
 
 
+### Wave 4
 
-```
-Messily written notes to communicate the classes and their members
+The tests in wave 4 imply there are three classes:
 
-vendor
-	inventory
-	add item
-	remove from inventory
-	find items with certain condition
-	find items with certain categories
-item
-> clothing
-> decor
-> electronics
-    category: str
-    condition: float
-    to_s
-	<!-- optionals: description: str, relies on age
-	age: int
-        long_description(): based on condition and age -->
-```
+- `Clothing`
+    - Has an attribute `category` that is `"Clothing"`
+    - Its stringify method returns `"The finest clothing you could wear."`
+- `Decor`
+    - Has an attribute `category` that is `"Decor"`
+    - Its stringify method returns `"Something to decorate your space."`
+- `Electronics`
+    - Has an attribute `category` that is `"Electronics"`
+    - Its stringify method returns `"A gadget full of buttons and secrets."`
+
+- All three classes have an optional keyword argument `condition`
+
+### Wave 5
+
+The first three tests in wave 5 imply:
+
+- `Vendor`s have a method named `get_best_by_category`, which will get the item with the best condition in a certain category
+    - It takes one argument: a string that represents a category
+    - This method looks through the instance's `inventory` for the item with the highest `condition` and matching `category`
+        - It returns this item
+        - If there are no items in the `inventory` that match the category, it returns `None`
+        - The logic is consistent even if there are duplicates
+
+The last three tests in wave 5 imply:
+
+- `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of certain categories with another `Vendor`
+    - It takes in three arguments
+        - `other`, which represents another `Vendor` instance to trade with
+        - `my_priority`, which represents a category that the `Vendor` wants to receive
+        - `their_priority`, which represents a category that `other` wants to receive
+    - The best item in my inventory that matches `their_priority` category is swapped with the best item in `other`'s inventory that matches `my_priority`
+        - It returns `True`
+        - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
+        - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
 
 
-## Wave 1
+## Optional Enhancements
 
-- Create Vendor class
-- Vendor has inventory: str[]
-- implement add()
-- implement remove()
+Should a project be completed before submission, and there is a desire for optional enhancements, consider these ideas:
 
-## Wave 2
+- Items have Age
+    - Add an `age` attribute to all Items
+    - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
 
-- Create Item class
-- Item has category: str
-- Implement: Vendor#get_by_category()
-- If you did everything a certain way, you don't need to refactor add or remove
-
-## Wave 3
-
-- Overwrite Item's `__str__()` method
-- Implement Vendor#swap_first_item(other_user)
-	- Notes: uses add, remove
-
-## Wave 4
-
-- Create classes Clothing, Decor, Electronics, inherit from Item
-    - Classes should hardcode their category
-    - Also, overwrite `__str__()`
-    - Also, condition: float
-
-## Wave 5
-
-- Implement Vendor#get_best_by_category()
-
-## Wave 6
-
-- Implement Vendor#swap_best_by_category
-
-## Optionals
-
-- Add age attribute to all Items
-    - Implement Vendor#swap_by_newest
-    - Implement Vendor#swap_by_newest
-
-- Make a method for each Item subclass called long_description(). They follow different rules for each subclass:
-
-Meta: these messages should be cute and distinctly "Clothing"/"Decor"/"Electronics" -- this is to anticipate "why don't we just use the same implementation" aka if all items had the same logic.
-
+- Make a method for each `Item` called `long_description`. This method returns a long description of the item, based on the condition of the item. They follow different rules for each class:
     - Clothing
-        - if condition > 1.0, "Clothing is clothing"
-        - else, "Worn out, possibly fashionable, possibly extreme"
+        - if condition greater than `1.0`, return "Clothing is clothing"
+        - otherwise, return "Worn out, possibly fashionable, possibly extreme"
     - Decor
-        - if condition >= 4.0, "Very good condition"
-        - if condition >= 3.0, "Pretty good condition"
-        - if condition >= 2.0, "Noticeable wear and tear"
-        - else, "Fashionably rustic"
+        - if condition greater than `4.0`, "Very good condition"
+        - if condition is between `3.0` and `4.0`, "Pretty good condition"
+        - if condition is between `2.0` and `3.0`, "Noticeable wear and tear"
+        - otherwise, "Fashionably rustic"
     - Electronics
-        - if condition >= 4.0, "Looks like it was just pulled out of the box for the first time!"
-        - else, "Probably broken, but retro!"
+        - if condition is greater than `4.0`, "Looks like it was just pulled out of the box for the first time!"
+        - otherwise, "Probably broken, but retro!"
