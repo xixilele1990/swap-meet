@@ -1,6 +1,6 @@
 import pytest
-from swap_meet.main import Vendor, Item
 
+pytestmark = pytest.mark.skip("Skip these tests until beginning this wave. Delete this line to stop skipping.")
 
 def test_item_overrides_to_string():
     item = Item()

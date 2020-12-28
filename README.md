@@ -86,11 +86,11 @@ Summary of one-time project setup:
 $ source venv/bin/activate
 ```
 
-2. Find the test file that contains the tests you want to run. Ensure that the tests in the file isn't skipped.
+2. Find the test file that contains the tests you want to run. Ensure that the tests in the file aren't skipped.
 
    - Check the `tests` folder, and find the test file you want to run
    - In that test file, read through each test case
-   - Remove all lines that contain `@pytest.mark.skip()`
+   - Remove all lines that contain `pytest.mark.skip()`
 
 3. Run the tests!
 
@@ -179,9 +179,9 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 The first two tests in wave 1 imply:
 
 - There is a class named `Vendor`
+    - Ensure that the class `Vendor` is imported into the test
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
 - When we create initialize an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
-
 
 The remaining tests in wave 1 imply:
 
@@ -194,13 +194,13 @@ The remaining tests in wave 1 imply:
 - This method returns the item that was removed
 - If there is no matching item in the `inventory`, the method should return `False`
 
-Entire concept: two users with an inventory should be able to swap items.
 
 ### Wave 2
 
 The first tests in wave 2 imply:
 
 - There is a class named `Item`
+    - Ensure that the class `Item` is imported into the test
 - Each `Item` will have an attribute named `category`, which is an empty string by default
 - When we initialize an instance of `Item`, we can optionally pass in a string with the keyword argument `category`
 - Instances of `Vendor` have an instance method named `get_by_category`
@@ -240,6 +240,7 @@ The tests in wave 4 imply there are three classes:
     - Its stringify method returns `"A gadget full of buttons and secrets."`
 
 - All three classes have an optional keyword argument `condition`
+- Ensure that the classes are imported correctly!
 
 ### Wave 5
 
@@ -269,7 +270,7 @@ The last three tests in wave 5 imply:
 
 Should a project be completed before submission, and there is a desire for optional enhancements, consider these ideas:
 
-- Items have Age
+- Items have age
     - Add an `age` attribute to all Items
     - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
 

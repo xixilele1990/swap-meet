@@ -1,5 +1,6 @@
 import pytest
-from swap_meet.main import Vendor, Item, Clothing, Decor, Electronics
+
+pytestmark = pytest.mark.skip("Skip these tests until beginning this wave. Delete this line to stop skipping.")
 
 def test_best_by_category():
     item_a = Clothing(condition=2.0)
