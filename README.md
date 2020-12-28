@@ -58,20 +58,25 @@ $ python3 -m venv venv
 $ source venv/bin/activate
 ```
 
+Verify that you're in a python3 virtual environment by running:
+
+- `$ python --version` should output a Python 3 version
+- `$ pip --version` should output that it is working with Python 3
+
 6. Install dependencies once at the beginning of this project with
 
 ```
-$ python3 -m pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
-Learn markdown checklist:
+Summary of one-time project setup:
 
-- [] `cd` into your `projects` folder
-- [] Clone the project onto your machine
-- [] `cd` into the `viewing-party` folder
-- [] Create the virtual environment `venv`
-- [] Activate the virtual environment `venv`
-- [] Install the dependences with `pip`
+- [ ] `cd` into your `projects` folder
+- [ ] Clone the project onto your machine
+- [ ] `cd` into the `viewing-party` folder
+- [ ] Create the virtual environment `venv`
+- [ ] Activate the virtual environment `venv`
+- [ ] Install the dependences with `pip`
 
 ## Project Development Workflow
 
@@ -90,10 +95,15 @@ $ source venv/bin/activate
 3. Run the tests!
 
 ```
-$ python3 -m pytest
+$ python -m pytest
 ```
 
-Callout: Why is the command `python3 -m pytest`? The `python3 -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python3 -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
+### !callout-info
+
+## `python -m`?
+Why is the command `python -m pytest`? The `python -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
+
+### !end-callout
 
 4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
 
@@ -115,26 +125,31 @@ Callout: Why is the command `python3 -m pytest`? The `python3 -m` command says "
 $ deactivate
 ```
 
-Callout: Alternatively, you could close this Terminal tab/window.
+### !callout-secondary
+
+## `$ deactivate` or Close Terminal
+Alternatively, you could close this Terminal tab/window.
+
+### !end-callout
 
 ## Details About How to Run Tests
 
 Run all unskipped tests that exist in this project with:
 
 ```
-python3 -m pytest
+python -m pytest
 ```
 
 If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
 ```
-python3 -m pytest -s
+python -m pytest -s
 ```
 
 If you want to run all unskipped tests that exist in one file, use:
 
 ```
-$ python3 -m pytest tests/test_file_name.py
+$ python -m pytest tests/test_file_name.py
 ```
 
 ... where `test_file_name.py` is relpaced with the correct test file name.
@@ -145,20 +160,17 @@ The goal of this project is to write code in `main.py` so that as many of the te
 
 To complete this project, use the above workflow and follow these steps:
 
-1. Start with making the tests in `test_wave_one.py` pass.
+1. Start with making the tests in `test_wave_01.py` pass.
 1. Review your code in `main.py` and see if there are ways you can make the code more readable.
-1. Then, work on making the tests in `test_wave_two.py` pass.
+1. Then, work on making the tests in `test_wave_02.py` pass.
 1. Review your code in `main.py`
-1. Then, work on making the tests in `test_wave_three.py` pass.
-1. Review your code in `main.py`
+1. Repeat on all test files until submission time.
 
 At submission time, no matter where you are, submit the project via ...
 
 ## Project Directions
 
-This project is designed such that one could puzzle together how to implement this project without many directions.
-
-Being able to use tests to drive project completion is a skill that needs to be developed; programmers often take years to develop this skill competently.
+This project is designed such that one could puzzle together how to implement this project without many directions.Being able to use tests to drive project completion is a skill that needs to be developed; programmers often take years to develop this skill competently.
 
 When our test failures leave us confused and stuck, let's use the detailed project requirements below.
 
