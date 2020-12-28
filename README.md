@@ -6,11 +6,11 @@
 - can make classes have instance methods and attributes
 - an instance of a class can "use"/reference an instance of another class/same class
 - an attribute can be an array of instances
-    - we can do interesting things with this array of instances
+  - we can do interesting things with this array of instances
 - a class can override something from Object, because every class inherits from Object
 - we can implement inheritance and use it
-    - we can observe that ducktyping works!!
-    - we can override things from that super class
+  - we can observe that ducktyping works!!
+  - we can override things from that super class
 
 ## Goal
 
@@ -101,6 +101,7 @@ $ python -m pytest
 ### !callout-info
 
 ## `python -m`?
+
 Why is the command `python -m pytest`? The `python -m` command says "execute what's to the right, and include the current project." In general, the pytest package needs to be able to discover our tests and our source code. Therefore, `python -m pytest` runs the `pytest` command, and ensures that our tests and source code are discoverable.
 
 ### !end-callout
@@ -128,6 +129,7 @@ $ deactivate
 ### !callout-secondary
 
 ## `$ deactivate` or Close Terminal
+
 Alternatively, you could close this Terminal tab/window.
 
 ### !end-callout
@@ -179,7 +181,7 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 The first two tests in wave 1 imply:
 
 - There is a class named `Vendor`
-    - Ensure that the class `Vendor` is imported into the test
+  - Ensure that the class `Vendor` is imported into the test
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
 - When we create initialize an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
 
@@ -194,50 +196,49 @@ The remaining tests in wave 1 imply:
 - This method returns the item that was removed
 - If there is no matching item in the `inventory`, the method should return `False`
 
-
 ### Wave 2
 
 The first tests in wave 2 imply:
 
 - There is a class named `Item`
-    - Ensure that the class `Item` is imported into the test
+  - Ensure that the class `Item` is imported into the test
 - Each `Item` will have an attribute named `category`, which is an empty string by default
 - When we initialize an instance of `Item`, we can optionally pass in a string with the keyword argument `category`
 - Instances of `Vendor` have an instance method named `get_by_category`
-    - It takes one argument: a string, representing a category
-    - This method returns a list of `Item`s in the inventory with that category
+  - It takes one argument: a string, representing a category
+  - This method returns a list of `Item`s in the inventory with that category
 
 ### Wave 3
 
 The first test in wave 3 implies:
 
 - When we stringify an instance of `Item` using `str()`, it returns `"Hello World!"`
-    - This implies `Item` overrides its stringify method
+  - This implies `Item` overrides its stringify method
 
 The remaining tests in wave 3 imply:
 
 - Instances of `Vendor` have an instance method named `swap_first_item`
-    - It takes one argument: an instance of another `Vendor`, representing the friend that the vendor is swapping with
-    - This method considers the first item in the instance's `inventory`, and the first item in the friend's `inventory`
-    - It removes the first item from its `inventory`, and adds the friend's first item
-    - It removes the first item from the friend's `inventory`, and adds the instances first item
-    - It returns `True`
-    - If either itself or the friend have an empty `inventory`, the method returns `False`
-
+  - It takes one argument: an instance of another `Vendor`, representing the friend that the vendor is swapping with
+  - This method considers the first item in the instance's `inventory`, and the first item in the friend's `inventory`
+  - It removes the first item from its `inventory`, and adds the friend's first item
+  - It removes the first item from the friend's `inventory`, and adds the instances first item
+  - It returns `True`
+  - If either itself or the friend have an empty `inventory`, the method returns `False`
 
 ### Wave 4
 
 The tests in wave 4 imply there are three classes:
 
 - `Clothing`
-    - Has an attribute `category` that is `"Clothing"`
-    - Its stringify method returns `"The finest clothing you could wear."`
+  - Has an attribute `category` that is `"Clothing"`
+  - Its stringify method returns `"The finest clothing you could wear."`
 - `Decor`
-    - Has an attribute `category` that is `"Decor"`
-    - Its stringify method returns `"Something to decorate your space."`
+  - Has an attribute `category` that is `"Decor"`
+  - Its stringify method returns `"Something to decorate your space."`
 - `Electronics`
-    - Has an attribute `category` that is `"Electronics"`
-    - Its stringify method returns `"A gadget full of buttons and secrets."`
+
+  - Has an attribute `category` that is `"Electronics"`
+  - Its stringify method returns `"A gadget full of buttons and secrets."`
 
 - All three classes have an optional keyword argument `condition`
 - Ensure that the classes are imported correctly!
@@ -247,42 +248,42 @@ The tests in wave 4 imply there are three classes:
 The first three tests in wave 5 imply:
 
 - `Vendor`s have a method named `get_best_by_category`, which will get the item with the best condition in a certain category
-    - It takes one argument: a string that represents a category
-    - This method looks through the instance's `inventory` for the item with the highest `condition` and matching `category`
-        - It returns this item
-        - If there are no items in the `inventory` that match the category, it returns `None`
-        - The logic is consistent even if there are duplicates
+  - It takes one argument: a string that represents a category
+  - This method looks through the instance's `inventory` for the item with the highest `condition` and matching `category`
+    - It returns this item
+    - If there are no items in the `inventory` that match the category, it returns `None`
+    - The logic is consistent even if there are duplicates
 
 The last three tests in wave 5 imply:
 
 - `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of certain categories with another `Vendor`
-    - It takes in three arguments
-        - `other`, which represents another `Vendor` instance to trade with
-        - `my_priority`, which represents a category that the `Vendor` wants to receive
-        - `their_priority`, which represents a category that `other` wants to receive
-    - The best item in my inventory that matches `their_priority` category is swapped with the best item in `other`'s inventory that matches `my_priority`
-        - It returns `True`
-        - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
-        - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
-
+  - It takes in three arguments
+    - `other`, which represents another `Vendor` instance to trade with
+    - `my_priority`, which represents a category that the `Vendor` wants to receive
+    - `their_priority`, which represents a category that `other` wants to receive
+  - The best item in my inventory that matches `their_priority` category is swapped with the best item in `other`'s inventory that matches `my_priority`
+    - It returns `True`
+    - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
+    - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
 
 ## Optional Enhancements
 
 Should a project be completed before submission, and there is a desire for optional enhancements, consider these ideas:
 
 - Items have age
-    - Add an `age` attribute to all Items
-    - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
+
+  - Add an `age` attribute to all Items
+  - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
 
 - Make a method for each `Item` called `long_description`. This method returns a long description of the item, based on the condition of the item. They follow different rules for each class:
-    - Clothing
-        - if condition greater than `1.0`, return "Clothing is clothing"
-        - otherwise, return "Worn out, possibly fashionable, possibly extreme"
-    - Decor
-        - if condition greater than `4.0`, "Very good condition"
-        - if condition is between `3.0` and `4.0`, "Pretty good condition"
-        - if condition is between `2.0` and `3.0`, "Noticeable wear and tear"
-        - otherwise, "Fashionably rustic"
-    - Electronics
-        - if condition is greater than `4.0`, "Looks like it was just pulled out of the box for the first time!"
-        - otherwise, "Probably broken, but retro!"
+  - Clothing
+    - if condition greater than `1.0`, return "Clothing is clothing"
+    - otherwise, return "Worn out, possibly fashionable, possibly extreme"
+  - Decor
+    - if condition greater than `4.0`, "Very good condition"
+    - if condition is between `3.0` and `4.0`, "Pretty good condition"
+    - if condition is between `2.0` and `3.0`, "Noticeable wear and tear"
+    - otherwise, "Fashionably rustic"
+  - Electronics
+    - if condition is greater than `4.0`, "Looks like it was just pulled out of the box for the first time!"
+    - otherwise, "Probably broken, but retro!"
