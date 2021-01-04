@@ -28,13 +28,13 @@ Follow these directions once, a the beginning of your project:
 
 1. Navigate to your projects folder named `projects`
 
-```
+```bash
 $ cd ~/Developer/projects
 ```
 
 2. "Clone" (download a copy of this project) into your projects folder. This command makes a new folder called `swap-meet`, and then puts the project into this new folder.
 
-```
+```bash
 $ git clone ...
 ```
 
@@ -42,19 +42,19 @@ Use `ls` to confirm there's a new project folder
 
 3. Move your location into this project folder
 
-```
+```bash
 $ cd swap-meet
 ```
 
 4. Create a virtual environment named `venv` for this project:
 
-```
+```bash
 $ python3 -m venv venv
 ```
 
 5. Activate this environment:
 
-```
+```bash
 $ source venv/bin/activate
 ```
 
@@ -65,7 +65,7 @@ Verify that you're in a python3 virtual environment by running:
 
 6. Install dependencies once at the beginning of this project with
 
-```
+```bash
 # Must be in activated virtual environment
 $ pip install -r requirements.txt
 ```
@@ -83,7 +83,7 @@ Summary of one-time project setup:
 
 1. When you want to begin work on this project, ensure that your virtual environment is activated:
 
-```
+```bash
 $ source venv/bin/activate
 ```
 
@@ -95,7 +95,7 @@ $ source venv/bin/activate
 
 3. Run the tests!
 
-```
+```bash
 # Must be in activated virtual environment
 $ pytest
 ```
@@ -116,7 +116,7 @@ $ pytest
 
 11. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
 
-```
+```bash
 $ deactivate
 ```
 
@@ -124,21 +124,21 @@ $ deactivate
 
 Run all unskipped tests that exist in this project with:
 
-```
+```bash
 # Must be in activated virtual environment
 $ pytest
 ```
 
 If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
-```
+```bash
 # Must be in activated virtual environment
 $ pytest -s
 ```
 
 If you want to run all unskipped tests that exist in one file, use:
 
-```
+```bash
 # Must be in activated virtual environment
 $ pytest tests/test_file_name.py
 ```
