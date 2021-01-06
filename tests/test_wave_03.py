@@ -1,6 +1,9 @@
 import pytest
+# The following lines will try to import Vendor and Item.
+# If they don't exist, then it will skip these tests.
+Vendor = pytest.importorskip("swap_meet.vendor").Vendor
+Item = pytest.importorskip("swap_meet.item").Item
 
-pytestmark = pytest.mark.skip("Skip these tests until beginning this wave. Delete this line to stop skipping.")
 
 def test_item_overrides_to_string():
     item = Item()
@@ -73,5 +76,3 @@ def test_swap_first_item_from_their_empty_returns_false():
     assert len(fatimah.inventory) is 3
     assert len(jolie.inventory) is 0
     assert result is False
-
-

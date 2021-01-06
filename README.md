@@ -87,11 +87,10 @@ Summary of one-time project setup:
 $ source venv/bin/activate
 ```
 
-2. Find the test file that contains the test you want to run. Ensure that the test(s) you want to run isn't skipped.
+2. Find the test file that contains the test you want to run.
 
    - Check the `tests` folder, and find the test file you want to run
    - In that test file, read through each test case
-   - Remove all lines that contain `@pytest.mark.skip()`
 
 3. Run the tests!
 
@@ -145,6 +144,12 @@ $ pytest tests/test_file_name.py
 
 ... where `test_file_name.py` is relpaced with the correct test file name.
 
+### My Tests Are Skipping! They Have `pytest.importorskip` at the Top!
+
+At the top of tests for waves 2-5, there are lines that contain `pytest.importorskip`. These lines essentially say, "Try to load the module I'm looking for. If you can't load it, then skip all the tests in this file!"
+
+The tests will run successfully when the necessary module is added.
+
 ## Project Write-Up: How to Complete and Submit
 
 The goal of this project is to write code in `main.py` so that as many of the tests pass as possible.
@@ -169,8 +174,8 @@ When our test failures leave us confused and stuck, let's use the detailed proje
 
 The first two tests in wave 1 imply:
 
-- There is a class named `Vendor`
-  - Ensure that the class `Vendor` is imported into the test
+- There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
+- Inside this module, there is a class named `Vendor`
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
 - When we create initialize an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
 
@@ -189,8 +194,9 @@ The remaining tests in wave 1 imply:
 
 The first tests in wave 2 imply:
 
-- There is a class named `Item`
-  - Ensure that the class `Item` is imported into the test
+- There is a module (file) named `item.py` inside of the `swap_meet` package (folder)
+
+- Inside this module, there is a class named `Item`
 - Each `Item` will have an attribute named `category`, which is an empty string by default
 - When we initialize an instance of `Item`, we can optionally pass in a string with the keyword argument `category`
 - Instances of `Vendor` have an instance method named `get_by_category`
@@ -216,7 +222,7 @@ The remaining tests in wave 3 imply:
 
 ### Wave 4
 
-The tests in wave 4 imply there are three classes:
+The tests in Wave 4 imply there are three new modules with three new classes:
 
 - `Clothing`
   - Has an attribute `category` that is `"Clothing"`
@@ -230,7 +236,14 @@ The tests in wave 4 imply there are three classes:
   - Its stringify method returns `"A gadget full of buttons and secrets."`
 
 - All three classes have an optional keyword argument `condition`
-- Ensure that the classes are imported correctly!
+
+#### Hint: Importing Item
+
+If you need to import the `Item` class into these modules, try this import line:
+
+```python
+from swap_meet.item import Item
+```
 
 ### Wave 5
 

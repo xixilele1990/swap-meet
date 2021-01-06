@@ -1,10 +1,14 @@
 import pytest
+# The following lines will try to import Vendor and Item.
+# If they don't exist, then it will skip these tests.
+Vendor = pytest.importorskip("swap_meet.vendor").Vendor
+Item = pytest.importorskip("swap_meet.item").Item
 
-pytestmark = pytest.mark.skip("Skip these tests until beginning this wave. Delete this line to stop skipping.")
 
 def test_items_have_blank_default_category():
     item = Item()
     assert item.category == ""
+
 
 def test_get_items_by_category():
     item_a = Item(category="clothing")
@@ -33,5 +37,3 @@ def test_get_no_matching_items_by_category():
     items = vendor.get_by_category("electronics")
 
     assert len(items) is 0
-
-
