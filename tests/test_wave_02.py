@@ -1,8 +1,6 @@
 import pytest
-# The following lines will try to import Vendor and Item.
-# If they don't exist, then it will skip these tests.
-Vendor = pytest.importorskip("swap_meet.vendor").Vendor
-Item = pytest.importorskip("swap_meet.item").Item
+from swap_meet.vendor import Vendor
+from swap_meet.item import Item
 
 
 def test_items_have_blank_default_category():

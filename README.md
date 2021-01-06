@@ -92,11 +92,11 @@ $ source venv/bin/activate
    - Check the `tests` folder, and find the test file you want to run
    - In that test file, read through each test case
 
-3. Run the tests!
+3. Run the tests for your specific wave
 
 ```bash
 # Must be in activated virtual environment
-$ pytest
+$ pytest tests/test_wave_01.py
 ```
 
 4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
@@ -121,21 +121,14 @@ $ deactivate
 
 ## Details About How to Run Tests
 
-Run all unskipped tests that exist in this project with:
+Run all tests that exist in this project with:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest
 ```
 
-If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
-
-```bash
-# Must be in activated virtual environment
-$ pytest -s
-```
-
-If you want to run all unskipped tests that exist in one file, use:
+If you want to run all tests that exist in one file, use:
 
 ```bash
 # Must be in activated virtual environment
@@ -144,11 +137,12 @@ $ pytest tests/test_file_name.py
 
 ... where `test_file_name.py` is relpaced with the correct test file name.
 
-### My Tests Are Skipping! They Have `pytest.importorskip` at the Top!
+If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
-At the top of tests for waves 2-5, there are lines that contain `pytest.importorskip`. These lines essentially say, "Try to load the module I'm looking for. If you can't load it, then skip all the tests in this file!"
-
-The tests will run successfully when the necessary module is added.
+```bash
+# Must be in activated virtual environment
+$ pytest -s
+```
 
 ## Project Write-Up: How to Complete and Submit
 

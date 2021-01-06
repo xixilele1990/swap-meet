@@ -1,11 +1,7 @@
 import pytest
-# The following lines will try to import Vendor, Item and Clothing.
-# If they don't exist, then it will skip these tests.
-Vendor = pytest.importorskip("swap_meet.vendor").Vendor
-Item = pytest.importorskip("swap_meet.item").Item
-Clothing = pytest.importorskip("swap_meet.clothing").Clothing
-# The following lines will try to import Decor and Electronics.
-# If they don't exist, then it will produce an error.
+from swap_meet.vendor import Vendor
+from swap_meet.item import Item
+from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
