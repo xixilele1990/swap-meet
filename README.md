@@ -146,14 +146,14 @@ $ pytest -s
 
 ## Project Write-Up: How to Complete and Submit
 
-The goal of this project is to write code in `main.py` so that as many of the tests pass as possible.
+The goal of this project is to write code in various files in the `swap_meet` directory so that as many of the tests pass as possible.
 
 To complete this project, use the above workflow and follow these steps:
 
 1. Start with making the tests in `test_wave_01.py` pass.
-1. Review your code in `main.py` and see if there are ways you can make the code more readable.
+1. Review your code in the `swap_meet` directory and see if there are ways you can make the code more readable.
 1. Then, work on making the tests in `test_wave_02.py` pass.
-1. Review your code in `main.py`
+1. Review your code in the `swap_meet` directory
 1. Repeat on all test files until submission time.
 
 At submission time, no matter where you are, submit the project via Learn.
