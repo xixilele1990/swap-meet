@@ -248,7 +248,7 @@ The first three tests in wave 5 imply:
   - This method looks through the instance's `inventory` for the item with the highest `condition` and matching `category`
     - It returns this item
     - If there are no items in the `inventory` that match the category, it returns `None`
-    - The logic is consistent even if there are duplicates
+    - It returns a single item even if there are duplicates (two or more of the same item with the same condition)
 
 The last three tests in wave 5 imply:
 
