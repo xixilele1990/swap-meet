@@ -225,11 +225,10 @@ The tests in Wave 4 imply there are three new modules with three new classes:
   - Has an attribute `category` that is `"Decor"`
   - Its stringify method returns `"Something to decorate your space."`
 - `Electronics`
-
   - Has an attribute `category` that is `"Electronics"`
   - Its stringify method returns `"A gadget full of buttons and secrets."`
 
-- All three classes have an optional keyword argument `condition`
+- All three classes have an attribute called `condition`, which can be optionally provided in the initializer. The default value should be `0`.
 
 #### Hint: Importing Item
 
