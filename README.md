@@ -204,8 +204,20 @@ The first test in wave 3 implies:
 - When we stringify an instance of `Item` using `str()`, it returns `"Hello World!"`
   - This implies `Item` overrides its stringify method
 
-The remaining tests in wave 3 imply:
+The remaining 5 tests in wave 3 imply:
+- Instances of `Vendor` have an instance method named `swap_items`
+  - It takes 3 arguments: 
+      1. an instance of another `Vendor`, representing the friend that the vendor is swapping with
+      2. an instance of an `Item` (`my_item`), representing the item this `Vendor` instance plans to give
+      3. an instance of an `Item` (`their_item`), representing the item the friend `Vendor` plans to give
+  - It removes the `my_item` from this `Vendor`'s inventory, and adds it to the friend's inventory
+  - It removes the `their_item` from the other `Vendor`'s inventory, and adds it to this `Vendor`'s inventory
+  - It returns `True`
+  - If this `Vendor`'s inventory doesn't contain `my_item` or the friend's inventory doesn't contain `their_item`, the method returns `False`
 
+### Wave 4
+
+The tests in wave 4 imply:
 - Instances of `Vendor` have an instance method named `swap_first_item`
   - It takes one argument: an instance of another `Vendor`, representing the friend that the vendor is swapping with
   - This method considers the first item in the instance's `inventory`, and the first item in the friend's `inventory`
@@ -214,9 +226,9 @@ The remaining tests in wave 3 imply:
   - It returns `True`
   - If either itself or the friend have an empty `inventory`, the method returns `False`
 
-### Wave 4
+### Wave 5
 
-The tests in Wave 4 imply there are three new modules with three new classes:
+The tests in Wave 5 imply there are three new modules with three new classes:
 
 - `Clothing`
   - Has an attribute `category` that is `"Clothing"`
@@ -228,19 +240,27 @@ The tests in Wave 4 imply there are three new modules with three new classes:
   - Has an attribute `category` that is `"Electronics"`
   - Its stringify method returns `"A gadget full of buttons and secrets."`
 
-- All three classes have an attribute called `condition`, which can be optionally provided in the initializer. The default value should be `0`.
+- All three classes and the `Item` class have an attribute called `condition`, which can be optionally provided in the initializer. The default value should be `0`.
 
-#### Hint: Importing Item
+- All three classes and the `Item` class have an instance method named `condition_description`, which should describe the condition in words based on the value, assuming they all range from 0 to 5. These can be basic descriptions (eg. 'mint', 'heavily used') but feel free to have fun with these (e.g. 'You probably want a glove for this one..."). The one requirement is that the `condition_description` for all three classes above have the same behavior.
 
+#### Using Inheritance
+
+Now, we may notice that these four classes hold the same types of state and have the same behavior. That makes this is a great opportunity to use inheritance! If you haven't already, go back and implement the `Clothing`, `Decor`, and `Electronics` classes so that they inherit from the `Item` class. This should eliminate repetition in your code and greatly reduce the total number of lines code in your program!
+
+Now the these three classes hold the same state and have the same behavior, this is a great opportunity to use inheritance! If you haven't already, go back and implement the `Clothing`, `Decor`, and `Electronics` classes so that they inherit from the `Item` class. This should eliminate repetition in your code and greatly reduce the total number of lines code in your program!
+##### Hint: Importing Item
+
+You'll need to refer to `Item` in order to declare it as a parent. To reference the `Item` class into these modules, try this import line:
 If you need to import the `Item` class into these modules, try this import line:
 
 ```python
 from swap_meet.item import Item
 ```
 
-### Wave 5
+### Wave 6
 
-The first three tests in wave 5 imply:
+The first three tests in wave 6 imply:
 
 - `Vendor`s have a method named `get_best_by_category`, which will get the item with the best condition in a certain category
   - It takes one argument: a string that represents a category
@@ -261,24 +281,16 @@ The last three tests in wave 5 imply:
     - If the `Vendor` has no item that matches `their_priority` category, swapping does not happen, and it returns `False`
     - If `other` has no item that matches `my_priority` category, swapping does not happen, and it returns `False`
 
+### DRYing up the code
+
+The further reduce the amount of repeated code in your project, consider how `swap_best_by_category` and `swap_first_item` might be able to make use of `swap_items`. Is there a way that these methods could incorporate a call to `swap_items` into the body of these methods?
+
+Try it out and see if the tests still pass! If you can't get them to pass with this refactor, you can always return to the most recent working commit before you submit the project!
+
 ## Optional Enhancements
 
-Should a project be completed before submission, and there is a desire for optional enhancements, consider these ideas:
+Should a project be completed before submission, and there is a desire for optional enhancements, consider this idea:
 
 - Items have age
-
   - Add an `age` attribute to all Items
   - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
-
-- Make a method for each `Item` called `long_description`. This method returns a long description of the item, based on the condition of the item. They follow different rules for each class:
-  - Clothing
-    - if condition greater than `1.0`, return "Clothing is clothing"
-    - otherwise, return "Worn out, possibly fashionable, possibly extreme"
-  - Decor
-    - if condition greater than `4.0`, "Very good condition"
-    - if condition is between `3.0` and `4.0`, "Pretty good condition"
-    - if condition is between `2.0` and `3.0`, "Noticeable wear and tear"
-    - otherwise, "Fashionably rustic"
-  - Electronics
-    - if condition is greater than `4.0`, "Looks like it was just pulled out of the box for the first time!"
-    - otherwise, "Probably broken, but retro!"

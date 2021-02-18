@@ -1,36 +1,67 @@
 import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
-from swap_meet.clothing import Clothing
-from swap_meet.decor import Decor
-from swap_meet.electronics import Electronics
+
+def test_swap_first_item_returns_true():
+    item_a = Item(category="clothing")
+    item_b = Item(category="clothing")
+    item_c = Item(category="clothing")
+    fatimah = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
+
+    item_d = Item(category="electronics")
+    item_e = Item(category="decor")
+    jolie = Vendor(
+        inventory=[item_d, item_e]
+    )
+
+    result = fatimah.swap_first_item(jolie)
+
+    assert len(fatimah.inventory) is 3
+    assert item_a not in fatimah.inventory
+    assert item_b in fatimah.inventory
+    assert item_c in fatimah.inventory
+    assert item_d in fatimah.inventory
+    assert len(jolie.inventory) is 2
+    assert item_d not in jolie.inventory
+    assert item_e in jolie.inventory
+    assert item_a in jolie.inventory
+    assert result is True
 
 
-def test_clothing_has_default_category_and_to_str():
-    cloth = Clothing()
-    assert cloth.category is "Clothing"
-    assert str(cloth) == "The finest clothing you could wear."
+def test_swap_first_item_from_my_empty_returns_false():
+    fatimah = Vendor(
+        inventory=[]
+    )
+
+    item_d = Item(category="electronics")
+    item_e = Item(category="decor")
+    jolie = Vendor(
+        inventory=[item_d, item_e]
+    )
+
+    result = fatimah.swap_first_item(jolie)
+
+    assert len(fatimah.inventory) is 0
+    assert len(jolie.inventory) is 2
+    assert result is False
 
 
-def test_decor_has_default_category_and_to_str():
-    decor = Decor()
-    assert decor.category is "Decor"
-    assert str(decor) == "Something to decorate your space."
+def test_swap_first_item_from_their_empty_returns_false():
+    item_a = Item(category="clothing")
+    item_b = Item(category="clothing")
+    item_c = Item(category="clothing")
+    fatimah = Vendor(
+        inventory=[item_a, item_b, item_c]
+    )
 
+    jolie = Vendor(
+        inventory=[]
+    )
 
-def test_electronics_has_default_category_and_to_str():
-    electronics = Electronics()
-    assert electronics.category is "Electronics"
-    assert str(electronics) == "A gadget full of buttons and secrets."
+    result = fatimah.swap_first_item(jolie)
 
-
-def test_items_have_condition_as_float():
-    items = [
-        Clothing(condition=3.5),
-        Decor(condition=3.5),
-        Electronics(condition=3.5)
-    ]
-    for item in items:
-        assert item.condition == pytest.approx(3.5)
-
-
+    assert len(fatimah.inventory) is 3
+    assert len(jolie.inventory) is 0
+    assert result is False
