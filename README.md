@@ -270,7 +270,7 @@ The first three tests in wave 6 imply:
     - If there are no items in the `inventory` that match the category, it returns `None`
     - It returns a single item even if there are duplicates (two or more of the same item with the same condition)
 
-The last three tests in wave 6 imply:
+The remaining tests in wave 6 imply:
 
 - `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of certain categories with another `Vendor`
   - It takes in three arguments
