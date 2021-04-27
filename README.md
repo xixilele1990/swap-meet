@@ -201,8 +201,8 @@ The first tests in wave 2 imply:
 
 The first test in wave 3 implies:
 
-- When we stringify an instance of `Item` using `str()`, it returns `"Hello World!"`
-  - This implies `Item` overrides its stringify method
+- When we stringify (convert to a string) an instance of `Item` using `str()`, it returns `"Hello World!"`
+  - This implies `Item` overrides its stringify method. We may need to research the `__str__` method for more details!
 
 The remaining tests in wave 3 imply:
 
