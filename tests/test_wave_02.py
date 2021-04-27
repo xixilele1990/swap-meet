@@ -1,4 +1,3 @@
-import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
@@ -18,7 +17,7 @@ def test_get_items_by_category():
 
     items = vendor.get_by_category("clothing")
 
-    assert len(items) is 2
+    assert len(items) == 2
     assert item_a in items
     assert item_c in items
     assert item_b not in items
@@ -34,4 +33,4 @@ def test_get_no_matching_items_by_category():
 
     items = vendor.get_by_category("electronics")
 
-    assert len(items) is 0
+    assert len(items) == 0
