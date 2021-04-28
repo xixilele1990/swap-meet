@@ -24,7 +24,7 @@ For this project, given some features that the vendors want, create a set of cla
 
 ## One-Time Project Setup
 
-Follow these directions once, a the beginning of your project:
+Follow these directions once, at the beginning of your project:
 
 1. Navigate to your projects folder named `projects`
 
@@ -74,10 +74,10 @@ Summary of one-time project setup:
 
 - [ ] `cd` into your `projects` folder
 - [ ] Clone the project onto your machine
-- [ ] `cd` into the `viewing-party` folder
+- [ ] `cd` into the `swap-meet` folder
 - [ ] Create the virtual environment `venv`
 - [ ] Activate the virtual environment `venv`
-- [ ] Install the dependences with `pip`
+- [ ] Install the dependencies with `pip`
 
 ## Project Development Workflow
 
@@ -135,7 +135,7 @@ If you want to run all tests that exist in one file, use:
 $ pytest tests/test_file_name.py
 ```
 
-... where `test_file_name.py` is relpaced with the correct test file name.
+... where `test_file_name.py` is replaced with the correct test file name.
 
 If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
@@ -160,7 +160,7 @@ At submission time, no matter where you are, submit the project via Learn.
 
 ## Project Directions
 
-This project is designed such that one could puzzle together how to implement this project without many directions.Being able to use tests to drive project completion is a skill that needs to be developed; programmers often take years to develop this skill competently.
+This project is designed such that one could puzzle together how to implement this project without many directions. Being able to use tests to drive project completion is a skill that needs to be developed; programmers often take years to develop this skill competently.
 
 When our test failures leave us confused and stuck, let's use the detailed project requirements below.
 
@@ -201,15 +201,16 @@ The first tests in wave 2 imply:
 
 The first test in wave 3 implies:
 
-- When we stringify an instance of `Item` using `str()`, it returns `"Hello World!"`
-  - This implies `Item` overrides its stringify method
+- When we stringify (convert to a string) an instance of `Item` using `str()`, it returns `"Hello World!"`
+  - This implies `Item` overrides its stringify method. We may need to research the `__str__` method for more details!
 
-The remaining 5 tests in wave 3 imply:
+The remaining tests in wave 3 imply:
+
 - Instances of `Vendor` have an instance method named `swap_items`
-  - It takes 3 arguments: 
-      1. an instance of another `Vendor`, representing the friend that the vendor is swapping with
-      2. an instance of an `Item` (`my_item`), representing the item this `Vendor` instance plans to give
-      3. an instance of an `Item` (`their_item`), representing the item the friend `Vendor` plans to give
+  - It takes 3 arguments:
+    1. an instance of another `Vendor`, representing the friend that the vendor is swapping with
+    2. an instance of an `Item` (`my_item`), representing the item this `Vendor` instance plans to give
+    3. an instance of an `Item` (`their_item`), representing the item the friend `Vendor` plans to give
   - It removes the `my_item` from this `Vendor`'s inventory, and adds it to the friend's inventory
   - It removes the `their_item` from the other `Vendor`'s inventory, and adds it to this `Vendor`'s inventory
   - It returns `True`
@@ -218,6 +219,7 @@ The remaining 5 tests in wave 3 imply:
 ### Wave 4
 
 The tests in wave 4 imply:
+
 - Instances of `Vendor` have an instance method named `swap_first_item`
   - It takes one argument: an instance of another `Vendor`, representing the friend that the vendor is swapping with
   - This method considers the first item in the instance's `inventory`, and the first item in the friend's `inventory`
@@ -228,7 +230,7 @@ The tests in wave 4 imply:
 
 ### Wave 5
 
-The tests in Wave 5 imply there are three new modules with three new classes:
+The tests in Wave 5 imply there are three additional modules with three additional classes:
 
 - `Clothing`
   - Has an attribute `category` that is `"Clothing"`
@@ -237,6 +239,7 @@ The tests in Wave 5 imply there are three new modules with three new classes:
   - Has an attribute `category` that is `"Decor"`
   - Its stringify method returns `"Something to decorate your space."`
 - `Electronics`
+
   - Has an attribute `category` that is `"Electronics"`
   - Its stringify method returns `"A gadget full of buttons and secrets."`
 
@@ -246,13 +249,11 @@ The tests in Wave 5 imply there are three new modules with three new classes:
 
 #### Using Inheritance
 
-Now, we may notice that these four classes hold the same types of state and have the same behavior. That makes this is a great opportunity to use inheritance! If you haven't already, go back and implement the `Clothing`, `Decor`, and `Electronics` classes so that they inherit from the `Item` class. This should eliminate repetition in your code and greatly reduce the total number of lines code in your program!
+Now, we may notice that these three classes hold the same types of state and have the same general behavior as `Item`. That makes this is a great opportunity to use inheritance! If you haven't already, go back and implement the `Clothing`, `Decor`, and `Electronics` classes so that they inherit from the `Item` class. This should eliminate repetition in your code and greatly reduce the total number of lines code in your program!
 
-Now the these three classes hold the same state and have the same behavior, this is a great opportunity to use inheritance! If you haven't already, go back and implement the `Clothing`, `Decor`, and `Electronics` classes so that they inherit from the `Item` class. This should eliminate repetition in your code and greatly reduce the total number of lines code in your program!
 ##### Hint: Importing Item
 
-You'll need to refer to `Item` in order to declare it as a parent. To reference the `Item` class into these modules, try this import line:
-If you need to import the `Item` class into these modules, try this import line:
+You'll need to refer to `Item` in order to declare it as a parent. To reference the `Item` class from these modules, try this import line:
 
 ```python
 from swap_meet.item import Item
@@ -269,7 +270,7 @@ The first three tests in wave 6 imply:
     - If there are no items in the `inventory` that match the category, it returns `None`
     - It returns a single item even if there are duplicates (two or more of the same item with the same condition)
 
-The last three tests in wave 5 imply:
+The remaining tests in wave 6 imply:
 
 - `Vendor`s have a method named `swap_best_by_category`, which will swap the best item of certain categories with another `Vendor`
   - It takes in three arguments
@@ -283,7 +284,7 @@ The last three tests in wave 5 imply:
 
 ### DRYing up the code
 
-The further reduce the amount of repeated code in your project, consider how `swap_best_by_category` and `swap_first_item` might be able to make use of `swap_items`. Is there a way that these methods could incorporate a call to `swap_items` into the body of these methods?
+To further reduce the amount of repeated code in your project, consider how `swap_best_by_category` and `swap_first_item` might be able to make use of `swap_items`. Is there a way that these methods could incorporate a call to `swap_items` into the body of these methods?
 
 Try it out and see if the tests still pass! If you can't get them to pass with this refactor, you can always return to the most recent working commit before you submit the project!
 
@@ -291,6 +292,6 @@ Try it out and see if the tests still pass! If you can't get them to pass with t
 
 Should a project be completed before submission, and there is a desire for optional enhancements, consider this idea:
 
-- Items have age
-  - Add an `age` attribute to all Items
+- `Item`s have age
+  - Add an `age` attribute to all `Item`s
   - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
