@@ -11,10 +11,9 @@ def test_vendor_takes_optional_inventory():
     inventory = ["a", "b", "c"]
     vendor = Vendor(inventory=inventory)
     assert len(vendor.inventory) == 3
-    assert "a" in inventory
-    assert "b" in inventory
-    assert "c" in inventory
-
+    assert "a" in vendor.inventory
+    assert "b" in vendor.inventory
+    assert "c" in vendor.inventory
 
 def test_adding_to_inventory():
     vendor = Vendor()
