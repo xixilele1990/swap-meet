@@ -87,29 +87,35 @@ Summary of one-time project setup:
 $ source venv/bin/activate
 ```
 
-2. Find the test file that contains the test you want to run.
+2. Check the `tests/unit_tests` folder, and find the test file you want to run
 
-   - Check the `tests` folder, and find the test file you want to run
    - In that test file, read through each test case
+      - If it is incomplete, complete the test. **There are incomplete tests for Waves 01, 02, and 06**. 
+        - *Is this a nominal or edge case?*
+        - *What type of input do we need to test this case?*
+        - *What is the expected output for the given input?*
+   - Remove the lines that contain `@pytest.mark.skip()` for the test(s) you want to run.
 
-3. Run the tests for your specific wave
+3. Run the test(s)! (RED)
+    - *See the [Details About How to Run Tests](#details-about-how-to-run-tests) section below for more information on how to run test(s).*
 
 ```bash
-# Must be in activated virtual environment
-$ pytest tests/test_wave_01.py
+# Must be in activated virtual environment in the project-root directory
+$ pytest
 ```
 
-4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
+4. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
+    - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does the test need modification?
 
-5. Make a plan to fix the test failure.
+5. Make a plan to implement code to pass the test.
 
-6. Write code to fix the test failure.
+6. Write code to pass the test.
 
-7. Re-run the tests.
+7. Re-run the test(s).
 
-8. Repeat steps 5-7 until that test passes!
+8. Repeat steps 2-7 until that test passes!
 
-9. Repeats steps 4-8 until you have finished all tests in the file.
+9. Repeats steps 3-8 until you have finished all tests in the file.
 
 10. Begin using the test file of the next wave!
 
@@ -118,31 +124,70 @@ $ pytest tests/test_wave_01.py
 ```bash
 $ deactivate
 ```
+Finally, at submission time, **no matter where you are**, submit the project via Learn.
+
+This will let us give feedback on what you've finished so that you can be better prepared for the next project.
+
+## Integration Tests
+
+We provided integration tests for this project. Integration tests verify that individual units of a piece of software are working together correctly.
+
+The integration tests for this project are in the directory `tests/integration_tests`, and the tests have the decorator `@pytest.mark.integration_test` provided by the `pytest-integration` package. Marking these tests as integration tests makes them run after the unit tests. The isolated nature and specficity of *unit tests* make them a much better tool for debugging. Hence, we want to run the unit tests before the integration tests.
+
+The integration tests provided in this project do not cover all the test cases verified by the unit tests. They verify that the functions work together when invoked correctly. We could classify them as the subset of Integration Tests called *Smoke Tests*, tests that check basic functionality of the application.
+
+For more on different types of software testing, [here is a helpful resource](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing). 
+
+## Code Coverage
+
+It is good practice to check code coverage. Code coverage is a term that is used to describe how much application code is executed when a particular test suite is run. A test suite with a high percentage of coverage is likely to be testing more throughly and have fewer bugs. A code coverage tool can partner with our testing suite to give us a report illustrating the coverage of our tests.
+
+Given that Ada provided all tests cases in this project, we should anticipate high code coverage.
+
+Review the [code coverage exercise](https://github.com/adaGold/code-coverage-exercise) on how to use `pytest-cov` to generate a code coverage report. We will need to change the directory where the application code is located from `student` to `swap_meet`.  
+
+`pytest --cov=swap_meet --cov-report html --cov-report term`
+
+*Note: Code coverage is disabled for integration tests, since unit tests should cover all the code.* [source](https://pypi.org/project/pytest-integration/#:~:text=Overview,integration%20tests%20are%20not%20run)
+
 
 ## Details About How to Run Tests
 
-Run all tests that exist in this project with:
+## Details About How to Run Tests
+
+All the commands described below should be run from the project-root directory `viewing-party`. Note that the project-root directory is the repository `viewing-party`. It is distinct from the directory `viewing_party` that contains the source code in `party.py`.
+
+To run all unskipped tests that exist in this project with:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest
 ```
 
-If you want to run all tests that exist in one file, use:
-
-```bash
-# Must be in activated virtual environment
-$ pytest tests/test_file_name.py
-```
-
-... where `test_file_name.py` is replaced with the correct test file name.
-
-If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
+To see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
 
 ```bash
 # Must be in activated virtual environment
 $ pytest -s
 ```
+
+To run all unskipped tests that exist in one file, use:
+
+```bash
+# Must be in activated virtual environment
+$ pytest tests/unit_tests/test_file_name.py
+```
+
+... where `test_file_name.py` is replaced with the correct test file name.
+
+To run a single test by name:
+
+```bash
+# Must be in activated virtual environment
+$ pytest tests/unit_tests/test_file_name.py::test_name
+```
+
+... where `test_name.py` is relpaced with the name of the function.
 
 ## Project Write-Up: How to Complete and Submit
 
@@ -295,3 +340,4 @@ Should a project be completed before submission, and there is a desire for optio
 - `Item`s have age
   - Add an `age` attribute to all `Item`s
   - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
+  - Write unit tests for `swap_by_newest`
