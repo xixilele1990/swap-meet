@@ -153,9 +153,7 @@ Review the [code coverage exercise](https://github.com/adaGold/code-coverage-exe
 
 ## Details About How to Run Tests
 
-## Details About How to Run Tests
-
-All the commands described below should be run from the project-root directory `viewing-party`. Note that the project-root directory is the repository `viewing-party`. It is distinct from the directory `viewing_party` that contains the source code in `party.py`.
+All the commands described below should be run from the project-root directory `swap_meet`. Note that the project-root directory is the repository `swap-meet`. It is distinct from the directory `swap_meet` that contains the source code.
 
 To run all unskipped tests that exist in this project with:
 
