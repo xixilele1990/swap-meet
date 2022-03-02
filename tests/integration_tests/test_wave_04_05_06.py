@@ -1,11 +1,13 @@
+import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.clothing import Clothing
 from swap_meet.decor import Decor
 from swap_meet.electronics import Electronics
 
+@pytest.mark.integration_test
 def test_integration_wave_04_05_06():
-    me = Vendor()
-    them = Vendor()
+    camila = Vendor()
+    valentina = Vendor()
 
     item_clothing1 = Clothing(condition=1.0)
     item_clothing2 = Clothing(condition=2.0)
@@ -14,18 +16,56 @@ def test_integration_wave_04_05_06():
     item_decor1 = Decor(condition=1.0)
     item_decor2 = Decor(condition=2.0)
 
-    me.add(item_clothing1)
-    me.add(item_clothing2)
-    me.add(item_electronics1)
+    camila.add(item_electronics1)
+    camila.add(item_clothing1)
+    camila.add(item_clothing2)
 
-    them.add(item_decor1)
-    them.add(item_decor2)
-    them.add(item_electronics2)
+    valentina.add(item_electronics2)
+    valentina.add(item_decor1)
+    valentina.add(item_decor2)
+    
 
     # swap first item
-    me.swap_first_item(them)
+    result = camila.swap_first_item(valentina)
     
-    assert len(me.inventory) == 3
-    assert len(them.inventory) == 3
+    assert result
+    assert len(camila.inventory) == 3
+    assert item_electronics2 in camila.inventory
+    assert item_clothing1 in camila.inventory
+    assert item_clothing2 in camila.inventory
 
-    assert item_clothing1
+    assert len(valentina.inventory) == 3
+    assert item_electronics1 in valentina.inventory
+    assert item_decor1 in valentina.inventory
+    assert item_decor2 in valentina.inventory
+
+    # swap_best_category - falsy
+    result = camila.swap_best_by_category(valentina, "Clothing", "Decor")
+
+    assert not result
+    assert len(camila.inventory) == 3
+    assert item_electronics2 in camila.inventory
+    assert item_clothing1 in camila.inventory
+    assert item_clothing2 in camila.inventory
+
+    assert len(valentina.inventory) == 3
+    assert item_electronics1 in valentina.inventory
+    assert item_decor1 in valentina.inventory
+    assert item_decor2 in valentina.inventory
+
+    # swap_best_category - truthy
+    result = camila.swap_best_by_category(valentina, "Decor", "Clothing")
+
+    assert result
+    assert len(camila.inventory) == 3
+    assert item_electronics2 in camila.inventory
+    assert item_clothing1 in camila.inventory
+    assert item_decor2 in camila.inventory
+
+    assert len(valentina.inventory) == 3
+    assert item_electronics1 in valentina.inventory
+    assert item_decor1 in valentina.inventory
+    assert item_clothing2 in valentina.inventory
+
+
+

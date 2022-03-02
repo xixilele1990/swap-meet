@@ -1,14 +1,16 @@
+import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
+@pytest.mark.integration_test
 def test_integration_wave_01_02_03():
     # make a vendor  
     vendor = Vendor()
     assert len(vendor.inventory) == 0
 
     # add an item
-    item1 = Item(category="clothing")
-    item2 = Item(category="electronics")
+    item1 = Item(category="Clothing")
+    item2 = Item(category="Electronics")
     result1 = vendor.add(item1)
     result2 = vendor.add(item2)
 
@@ -26,19 +28,19 @@ def test_integration_wave_01_02_03():
     assert result == item1
 
     # get item by category, truthy
-    items = vendor.get_by_category("electronics")
+    items = vendor.get_by_category("Electronics")
 
     assert len(items) == 1
     assert item2 in items
 
     # get item by category, falsy
-    items = vendor.get_by_category("clothing")
+    items = vendor.get_by_category("Clothing")
     assert len(items) == 0
 
     other_vendor = Vendor()
 
     # swap items
-    item3 = Item(category="decor")
+    item3 = Item(category="Decor")
     other_vendor.add(item3)
 
     vendor.swap_items(other_vendor, item2, item3)

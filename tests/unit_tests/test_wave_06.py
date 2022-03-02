@@ -73,8 +73,9 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
-    # Assert
-
+    # *********************************************************************
+    # ****** Complete Assert Portion of this test **********
+    # *********************************************************************
     # Assertions should check:
     # - That the results is truthy
     # - That tai and jesse's inventories are the correct length
@@ -185,6 +186,9 @@ def test_swap_best_by_category_no_match_is_false():
         their_priority="Clothing"
     )
 
+    # *********************************************************************
+    # ****** Complete Assert Portion of this test **********
+    # *********************************************************************
     # Assertions should check:
     # - That the result is falsy
     # - That tai and jesse's inventories are the correct length
@@ -214,6 +218,9 @@ def test_swap_best_by_category_no_other_match_is_false():
         their_priority="Decor"
     )
 
+    # *********************************************************************
+    # ****** Complete Assert Portion of this test **********
+    # *********************************************************************
     # Assertions should check:
     # - That the result is falsy
     # - That tai and jesse's inventories are the correct length
