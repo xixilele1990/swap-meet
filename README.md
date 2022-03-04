@@ -81,6 +81,8 @@ Summary of one-time project setup:
 
 ## Project Development Workflow
 
+We will use a Test Driven Development programming workflow to work on this project. Notice the Red-Green-Refactor steps in the workflow steps outlined below.
+
 1. When you want to begin work on this project, ensure that your virtual environment is activated:
 
 ```bash
@@ -109,17 +111,19 @@ $ pytest
 
 5. Make a plan to implement code to pass the test.
 
-6. Write code to pass the test.
+6. Write code to pass the test (GREEN).
 
 7. Re-run the test(s).
 
-8. Repeat steps 2-7 until that test passes!
+8. Repeat steps 3-7 until that test passes!
 
-9. Repeats steps 3-8 until you have finished all tests in the file.
+9. Consider looking for opportunities to improve your code (REFACTOR)
 
-10. Begin using the test file of the next wave!
+10. Repeats steps 2-8 until you have finished all tests in the file.
 
-11. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
+11. Begin using the test file of the next wave!
+
+12. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
 
 ```bash
 $ deactivate
