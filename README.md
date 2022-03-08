@@ -22,115 +22,11 @@ You envision an app where vendors can swap items between different inventories. 
 
 For this project, given some features that the vendors want, create a set of classes, following the directions below. The directions will lead you to create many class definitions, their attributes and instance methods, and some other cool features. Vendors will be able to swap their top item and swap items by category!
 
-## One-Time Project Setup
+## Setup and Workflow
 
-Follow these directions once, at the beginning of your project:
+Refer to [the viewing-party README](https://github.com/AdaGold/viewing-party) for detailed instructions on the One-Time Project Setup, Project Development Workflow, and Details About How to Run Tests.
 
-1. Navigate to your projects folder named `projects`
-
-```bash
-$ cd ~/Developer/projects
-```
-
-2. "Clone" (download a copy of this project) into your projects folder. This command makes a new folder called `swap-meet`, and then puts the project into this new folder.
-
-```bash
-$ git clone ...
-```
-
-Use `ls` to confirm there's a new project folder
-
-3. Move your location into this project folder
-
-```bash
-$ cd swap-meet
-```
-
-4. Create a virtual environment named `venv` for this project:
-
-```bash
-$ python3 -m venv venv
-```
-
-5. Activate this environment:
-
-```bash
-$ source venv/bin/activate
-```
-
-Verify that you're in a python3 virtual environment by running:
-
-- `$ python --version` should output a Python 3 version
-- `$ pip --version` should output that it is working with Python 3
-
-6. Install dependencies once at the beginning of this project with
-
-```bash
-# Must be in activated virtual environment
-$ pip install -r requirements.txt
-```
-
-Summary of one-time project setup:
-
-- [ ] `cd` into your `projects` folder
-- [ ] Clone the project onto your machine
-- [ ] `cd` into the `swap-meet` folder
-- [ ] Create the virtual environment `venv`
-- [ ] Activate the virtual environment `venv`
-- [ ] Install the dependencies with `pip`
-
-## Project Development Workflow
-
-We will use a Test Driven Development programming workflow to work on this project.
-
-1. When you want to begin work on this project, ensure that your virtual environment is activated:
-
-```bash
-$ source venv/bin/activate
-```
-
-2. Check the `tests/unit_tests` folder, and find the test file you want to run
-
-   - In that test file, read through each test case
-      - If it is incomplete, complete the test. **There are incomplete tests for Waves 01, 02, and 06**. 
-        - *Is this a nominal or edge case?*
-        - *What type of input do we need to test this case?*
-        - *What is the expected output for the given input?*
-   - Remove the lines that contain `@pytest.mark.skip()` for the test(s) you want to run.
-
-3. Run the test(s)!
-    - *See the [Details About How to Run Tests](#details-about-how-to-run-tests) section below for more information on how to run test(s).*
-
-```bash
-# Must be in activated virtual environment in the project-root directory
-$ pytest
-```
-
-4. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
-    - If it is a test you wrote, consider whether the code is actually testing what you intend to test. Does the test need modification?
-
-5. Make a plan to implement code to pass the test.
-
-6. Write code to pass the test.
-
-7. Re-run the test(s).
-
-8. Repeat steps 3-7 until that test passes!
-
-9. Repeat steps 2-8 until you have finished all tests in the file.
-
-10. Consider looking for opportunities to improve your code.
-
-11. Begin using the test file of the next wave!
-
-12. When you are finished working for the day, deactivate your environment with deactivate or by closing the Terminal tab/window
-
-```bash
-$ deactivate
-```
-Finally, at submission time, **no matter where you are**, submit the project via Learn.
-
-This will let us give feedback on what you've finished so that you can be better prepared for the next project.
+For this project, there are tests that you must complete for Waves 01, 02, and 06.
 
 ## Integration Tests
 
@@ -151,57 +47,6 @@ Review the [code coverage exercise](https://github.com/adaGold/code-coverage-exe
 `pytest --cov=swap_meet --cov-report html --cov-report term`
 
 *Note: Code coverage is disabled for integration tests, since unit tests should cover all the code.* [source](https://pypi.org/project/pytest-integration/#:~:text=Overview,integration%20tests%20are%20not%20run)
-
-
-## Details About How to Run Tests
-
-All the commands described below should be run from the project-root directory `swap_meet`. Note that the project-root directory is the repository `swap-meet`. It is distinct from the directory `swap_meet` that contains the source code.
-
-To run all unskipped tests that exist in this project with:
-
-```bash
-# Must be in activated virtual environment
-$ pytest
-```
-
-To see any `print` statement's output in the console, add `-s` to the end of any `pytest` command:
-
-```bash
-# Must be in activated virtual environment
-$ pytest -s
-```
-
-To run all unskipped tests that exist in one file, use:
-
-```bash
-# Must be in activated virtual environment
-$ pytest tests/unit_tests/test_file_name.py
-```
-
-... where `test_file_name.py` is replaced with the correct test file name.
-
-To run a single test by name:
-
-```bash
-# Must be in activated virtual environment
-$ pytest tests/unit_tests/test_file_name.py::test_name
-```
-
-... where `test_name.py` is relpaced with the name of the function.
-
-## Project Write-Up: How to Complete and Submit
-
-The goal of this project is to write code in various files in the `swap_meet` directory so that as many of the tests pass as possible.
-
-To complete this project, use the above workflow and follow these steps:
-
-1. Start with making the tests in `test_wave_01.py` pass.
-1. Review your code in the `swap_meet` directory and see if there are ways you can make the code more readable.
-1. Then, work on making the tests in `test_wave_02.py` pass.
-1. Review your code in the `swap_meet` directory
-1. Repeat on all test files until submission time.
-
-At submission time, no matter where you are, submit the project via Learn.
 
 ## Project Directions
 
