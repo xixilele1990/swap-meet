@@ -21,11 +21,11 @@ def test_integration_wave_01_02_03():
     assert result2 == item2
 
     # remove an item
-    result = vendor.remove(item1)
+    remove_result = vendor.remove(item1)
 
     assert len(vendor.inventory) == 1
     assert item1 not in vendor.inventory
-    assert result == item1
+    assert remove_result == item1
 
     # get item by category, truthy
     items = vendor.get_by_category("Electronics")
