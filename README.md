@@ -107,7 +107,7 @@ $ pytest
 ```
 
 4. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate. 
-    - If it is a test you wrote, consider whether you are actually testing what you intend to test. Does the test need modification?
+    - If it is a test you wrote, consider whether the code is actually testing what you intend to test. Does the test need modification?
 
 5. Make a plan to implement code to pass the test.
 
@@ -123,7 +123,7 @@ $ pytest
 
 11. Begin using the test file of the next wave!
 
-12. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
+12. When you are finished working for the day, deactivate your environment with deactivate or by closing the Terminal tab/window
 
 ```bash
 $ deactivate
