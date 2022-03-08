@@ -142,7 +142,7 @@ For more on different types of software testing, [here is a helpful resource](ht
 
 ## Code Coverage
 
-It is good practice to check code coverage. Code coverage is a term that is used to describe how much application code is executed when a particular test suite is run. A test suite with a high percentage of coverage is likely to be testing more throughly and have fewer bugs. A code coverage tool can partner with our testing suite to give us a report illustrating the coverage of our tests.
+Code coverage is a term used to describe how much application code is executed when a particular test suite is run. It is a good practice to check our code coverage, to understand how much of our code is exercised by tests vs how much is still untested. A test suite with a high percentage of coverage is likely to be testing more throughly and have fewer bugs. A code coverage tool can partner with our testing suite to give us a report illustrating the coverage of our tests.
 
 Given that Ada provided all tests cases in this project, we should anticipate high code coverage.
 
@@ -164,7 +164,7 @@ To run all unskipped tests that exist in this project with:
 $ pytest
 ```
 
-To see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
+To see any `print` statement's output in the console, add `-s` to the end of any `pytest` command:
 
 ```bash
 # Must be in activated virtual environment

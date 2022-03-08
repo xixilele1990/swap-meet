@@ -79,7 +79,7 @@ def test_swap_best_by_category():
     # Assertions should check:
     # - That the results is truthy
     # - That tai and jesse's inventories are the correct length
-    # - That all the correct items are in tai and jesse's inventories, and that the items that were swapped are not there
+    # - That all the correct items are in tai and jesse's inventories, including the items which were swapped from one vendor to the other
 
 
 def test_swap_best_by_category_reordered():
