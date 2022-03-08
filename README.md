@@ -134,11 +134,9 @@ This will let us give feedback on what you've finished so that you can be better
 
 ## Integration Tests
 
-We provided integration tests for this project. Integration tests verify that individual units of a piece of software are working together correctly.
+We provided **integration tests** for this project. The integration tests provided in this project do not cover all the test cases verified by the unit tests. Integration tests verify that individual units of a piece of software are working together correctly. For this project, the integration tests mainly verify that the functions work together when invoked correctly. We could classify them as the subset of Integration Tests called *Smoke Tests*, tests that check basic functionality of the application.
 
 The integration tests for this project are in the directory `tests/integration_tests`, and the tests have the decorator `@pytest.mark.integration_test` provided by the `pytest-integration` package. Marking these tests as integration tests makes them run after the unit tests. The isolated nature and specficity of *unit tests* make them a much better tool for debugging. Hence, we want to run the unit tests before the integration tests.
-
-The integration tests provided in this project do not cover all the test cases verified by the unit tests. They verify that the functions work together when invoked correctly. We could classify them as the subset of Integration Tests called *Smoke Tests*, tests that check basic functionality of the application.
 
 For more on different types of software testing, [here is a helpful resource](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing). 
 
