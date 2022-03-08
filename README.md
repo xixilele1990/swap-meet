@@ -119,7 +119,7 @@ $ pytest
 
 9. Consider looking for opportunities to improve your code.
 
-10. Repeats steps 2-8 until you have finished all tests in the file.
+10. Repeat steps 2-9 until you have finished all tests in the file.
 
 11. Begin using the test file of the next wave!
 
