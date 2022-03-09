@@ -61,7 +61,7 @@ The first two tests in wave 1 imply:
 - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
 - Inside this module, there is a class named `Vendor`
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
-- When we create initialize an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
+- When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
 
 The remaining tests in wave 1 imply:
 
