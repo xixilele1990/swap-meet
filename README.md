@@ -54,6 +54,8 @@ This project is designed such that one could puzzle together how to implement th
 
 When our test failures leave us confused and stuck, let's use the detailed project requirements below.
 
+At submission time, no matter where you are, submit the project via Learn.
+
 ### Wave 1
 
 The first two tests in wave 1 imply:
