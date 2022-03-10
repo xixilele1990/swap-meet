@@ -22,147 +22,39 @@ You envision an app where vendors can swap items between different inventories. 
 
 For this project, given some features that the vendors want, create a set of classes, following the directions below. The directions will lead you to create many class definitions, their attributes and instance methods, and some other cool features. Vendors will be able to swap their top item and swap items by category!
 
-## One-Time Project Setup
+## Setup and Workflow
 
-Follow these directions once, at the beginning of your project:
+Refer to [the viewing-party README](https://github.com/AdaGold/viewing-party) for detailed instructions on the One-Time Project Setup, Project Development Workflow, and Details About How to Run Tests.
 
-1. Navigate to your projects folder named `projects`
+For this project, there are tests that you must complete for Waves 01, 02, and 06.
 
-```bash
-$ cd ~/Developer/projects
-```
+## Integration Tests
 
-2. "Clone" (download a copy of this project) into your projects folder. This command makes a new folder called `swap-meet`, and then puts the project into this new folder.
+We provided **integration tests** for this project. The integration tests provided in this project do not cover all the test cases verified by the unit tests. While unit tests are small, fast, and should cover most of our program's behavior down to individual functions, integration tests verify that the various pieces of a program are working together correctly. For this project, the integration tests mainly verify that the functions work together when invoked correctly. We could classify them as the subset of Integration Tests called *Smoke Tests*, tests that check basic functionality of the application.
 
-```bash
-$ git clone ...
-```
+The integration tests for this project are in the directory `tests/integration_tests`, and the tests have the decorator `@pytest.mark.integration_test` provided by the `pytest-integration` package. Marking these tests as integration tests makes them run after the unit tests. The isolated nature and specficity of *unit tests* make them a much better tool for debugging. Hence, we want to run the unit tests before the integration tests.
 
-Use `ls` to confirm there's a new project folder
+For more on different types of software testing, [here is a helpful resource](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing). 
 
-3. Move your location into this project folder
+## Code Coverage
 
-```bash
-$ cd swap-meet
-```
+Code coverage is a term used to describe how much application code is executed when a particular test suite is run. It is a good practice to check our code coverage, to understand how much of our code is exercised by tests vs how much is still untested. A test suite with a high percentage of coverage is likely to be testing more throughly and have fewer bugs. A code coverage tool can partner with our testing suite to give us a report illustrating the coverage of our tests.
 
-4. Create a virtual environment named `venv` for this project:
+Given that Ada provided all tests cases in this project, we should anticipate high code coverage.
 
-```bash
-$ python3 -m venv venv
-```
+Review the [code coverage exercise](https://github.com/adaGold/code-coverage-exercise) on how to use `pytest-cov` to generate a code coverage report. We will need to change the directory where the application code is located from `student` to `swap_meet`.  
 
-5. Activate this environment:
+`pytest --cov=swap_meet --cov-report html --cov-report term`
 
-```bash
-$ source venv/bin/activate
-```
-
-Verify that you're in a python3 virtual environment by running:
-
-- `$ python --version` should output a Python 3 version
-- `$ pip --version` should output that it is working with Python 3
-
-6. Install dependencies once at the beginning of this project with
-
-```bash
-# Must be in activated virtual environment
-$ pip install -r requirements.txt
-```
-
-Summary of one-time project setup:
-
-- [ ] `cd` into your `projects` folder
-- [ ] Clone the project onto your machine
-- [ ] `cd` into the `swap-meet` folder
-- [ ] Create the virtual environment `venv`
-- [ ] Activate the virtual environment `venv`
-- [ ] Install the dependencies with `pip`
-
-## Project Development Workflow
-
-1. When you want to begin work on this project, ensure that your virtual environment is activated:
-
-```bash
-$ source venv/bin/activate
-```
-
-2. Find the test file that contains the test you want to run.
-
-   - Check the `tests` folder, and find the test file you want to run
-   - In that test file, read through each test case
-
-3. Run the tests for your specific wave
-
-```bash
-# Must be in activated virtual environment
-$ pytest tests/test_wave_01.py
-```
-
-4. Focus on the top test failure. Read through the test failure, and understand why the failure is happening. Confirm your findings with a classmate.
-
-5. Make a plan to fix the test failure.
-
-6. Write code to fix the test failure.
-
-7. Re-run the tests.
-
-8. Repeat steps 5-7 until that test passes!
-
-9. Repeats steps 4-8 until you have finished all tests in the file.
-
-10. Begin using the test file of the next wave!
-
-11. When you are finished working for the day, deactivate your environment with deactivate or closing the Terminal tab/window
-
-```bash
-$ deactivate
-```
-
-## Details About How to Run Tests
-
-Run all tests that exist in this project with:
-
-```bash
-# Must be in activated virtual environment
-$ pytest
-```
-
-If you want to run all tests that exist in one file, use:
-
-```bash
-# Must be in activated virtual environment
-$ pytest tests/test_file_name.py
-```
-
-... where `test_file_name.py` is replaced with the correct test file name.
-
-If you want to see any `print` statements print to the console, add `-s` to the end of any `pytest` command:
-
-```bash
-# Must be in activated virtual environment
-$ pytest -s
-```
-
-## Project Write-Up: How to Complete and Submit
-
-The goal of this project is to write code in various files in the `swap_meet` directory so that as many of the tests pass as possible.
-
-To complete this project, use the above workflow and follow these steps:
-
-1. Start with making the tests in `test_wave_01.py` pass.
-1. Review your code in the `swap_meet` directory and see if there are ways you can make the code more readable.
-1. Then, work on making the tests in `test_wave_02.py` pass.
-1. Review your code in the `swap_meet` directory
-1. Repeat on all test files until submission time.
-
-At submission time, no matter where you are, submit the project via Learn.
+*Note: Code coverage is disabled for integration tests, since unit tests should cover all the code.* [source](https://pypi.org/project/pytest-integration/#:~:text=Overview,integration%20tests%20are%20not%20run)
 
 ## Project Directions
 
 This project is designed such that one could puzzle together how to implement this project without many directions. Being able to use tests to drive project completion is a skill that needs to be developed; programmers often take years to develop this skill competently.
 
 When our test failures leave us confused and stuck, let's use the detailed project requirements below.
+
+At submission time, no matter where you are, submit the project via Learn.
 
 ### Wave 1
 
@@ -171,7 +63,7 @@ The first two tests in wave 1 imply:
 - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
 - Inside this module, there is a class named `Vendor`
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
-- When we create initialize an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
+- When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
 
 The remaining tests in wave 1 imply:
 
@@ -295,3 +187,4 @@ Should a project be completed before submission, and there is a desire for optio
 - `Item`s have age
   - Add an `age` attribute to all `Item`s
   - Implement a `Vendor` method named `swap_by_newest`, using any logic that seems appropriate
+  - Write unit tests for `swap_by_newest`
