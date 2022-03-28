@@ -58,7 +58,7 @@ At submission time, no matter where you are, submit the project via Learn.
 
 ### Wave 1
 
-In Wave 1 we will create the `vendor` class.
+In Wave 1 we will create the `Vendor` class.
 
 - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
 - Inside this module, there is a class named `Vendor`
