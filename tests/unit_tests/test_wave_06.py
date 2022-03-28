@@ -110,6 +110,9 @@ def test_swap_best_by_category_reordered():
     )
 
     raise Exception("Complete this test according to comments below.")
+    # *********************************************************************
+    # ****** Complete Assert Portion of this test **********
+    # *********************************************************************
     # Assertions should check:
     # - That result is truthy
     # - That tai and jesse's inventories are the correct length
