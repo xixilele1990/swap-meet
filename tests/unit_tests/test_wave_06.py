@@ -76,6 +76,7 @@ def test_swap_best_by_category():
         their_priority="Decor"
     )
 
+    raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -108,6 +109,10 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
+    raise Exception("Complete this test according to comments below.")
+    # *********************************************************************
+    # ****** Complete Assert Portion of this test **********
+    # *********************************************************************
     # Assertions should check:
     # - That result is truthy
     # - That tai and jesse's inventories are the correct length
@@ -189,6 +194,7 @@ def test_swap_best_by_category_no_match_is_false():
         their_priority="Clothing"
     )
 
+    raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
@@ -221,6 +227,7 @@ def test_swap_best_by_category_no_other_match_is_false():
         their_priority="Decor"
     )
 
+    raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************

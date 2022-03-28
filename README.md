@@ -58,14 +58,13 @@ At submission time, no matter where you are, submit the project via Learn.
 
 ### Wave 1
 
-The first two tests in wave 1 imply:
+In Wave 1 we will create the `Vendor` class.
 
 - There is a module (file) named `vendor.py` inside of the `swap_meet` package (folder)
 - Inside this module, there is a class named `Vendor`
 - Each `Vendor` will have an attribute named `inventory`, which is an empty list by default
 - When we instantiate an instance of `Vendor`, we can optionally pass in a list with the keyword argument `inventory`
 
-The remaining tests in wave 1 imply:
 
 - Every instance of `Vendor` has an instance method named `add`, which takes in one item
 - This method adds the item to the `inventory`
@@ -78,7 +77,7 @@ The remaining tests in wave 1 imply:
 
 ### Wave 2
 
-The first tests in wave 2 imply:
+In Wave 2 we will create the `Item` class and the `get_by_category` method.
 
 - There is a module (file) named `item.py` inside of the `swap_meet` package (folder)
 
@@ -91,7 +90,7 @@ The first tests in wave 2 imply:
 
 ### Wave 3
 
-The first test in wave 3 implies:
+In Wave 3 we will write a method to stringify an `Item` using `str()` and write the method `swap_items`.
 
 - When we stringify (convert to a string) an instance of `Item` using `str()`, it returns `"Hello World!"`
   - This implies `Item` overrides its stringify method. We may need to research the `__str__` method for more details!
@@ -110,7 +109,7 @@ The remaining tests in wave 3 imply:
 
 ### Wave 4
 
-The tests in wave 4 imply:
+In Wave 4 we will write one method, `swap_first_item`.
 
 - Instances of `Vendor` have an instance method named `swap_first_item`
   - It takes one argument: an instance of another `Vendor`, representing the friend that the vendor is swapping with
@@ -122,7 +121,7 @@ The tests in wave 4 imply:
 
 ### Wave 5
 
-The tests in Wave 5 imply there are three additional modules with three additional classes:
+In Wave 5 we will create three additional modules with three additional classes:
 
 - `Clothing`
   - Has an attribute `category` that is `"Clothing"`
@@ -153,7 +152,7 @@ from swap_meet.item import Item
 
 ### Wave 6
 
-The first three tests in wave 6 imply:
+In Wave 6 we will write two methods, `get_best_by_category` and `swap_best_by_category`.
 
 - `Vendor`s have a method named `get_best_by_category`, which will get the item with the best condition in a certain category
   - It takes one argument: a string that represents a category
