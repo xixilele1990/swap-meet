@@ -87,7 +87,6 @@ In Wave 2 we will create the `Item` class and the `Vendor` class' `get_by_id` me
     - If we import the [`uuid` package](https://docs.python.org/3/library/uuid.html) in `item.py`, with a little research we can use one of the functions `uuid` provides to create large unique numbers meant to be used as identifiers
     - This package creates `UUID` objects, its functions don't directly return an integer, **but** `UUID` instances have [an attribute `int`](https://docs.python.org/3/library/uuid.html#uuid.UUID.int) which allow us to access their value as an integer
 - When we initialize an instance of `Item`, we can optionally pass in an integer with the keyword argument `id` to manually set the `Item`'s `id`
-- `Item` will also have a class variable `category`. The value of the variable should be the name of the class, i.e. "Item".
 - Each `Item` will have a function named `get_category`, which will return a string holding the name of the class
 
 - Instances of `Vendor` have an instance method named `get_by_id`
@@ -135,29 +134,26 @@ In Wave 5 we will create three additional modules with three additional classes.
 Our new modules should be defined as follows:
 - `Clothing`
   - Has an attribute `id` that is by default a unique integer
-  - Has a class variable `category` The value of the variable should be the name of the class, i.e. "Clothing".
   - Has an attribute `fabric` that is by default the string "Unknown"
     - This attribute describes what fabric the clothing is made from; some example values might be `"Striped"`, `"Cotton"`, or `"Floral"`
     - When we instantiate an instance of `Clothing`, we can optionally pass in a string with the keyword argument `fabric`
-  - Has a function `get_category` that returns the `category` class variable
+  - Has a function `get_category` that returns `"Clothing"`
   - Has a stringify method that returns `"An object of type Clothing with id <id value>. It is made from <fabric value> fabric."`
     - For example, if we had a `Clothing` instance with an `id` of `123435` and a `fabric` attribute that holds `"Wool"`, its stringify method should return `"An object of type Clothing with id 12345. It is made from Wool fabric."`
 - `Decor`
   - Has an attribute `id` that is by default a unique integer
-  - Has a class variable `category` The value of the variable should be the name of the class, i.e. "Decor".
   - Holds 2 integer attributes `width` and `length`
     - Both of these values should be 0 by default
     - When we instantiate an instance of `Decor`, we can optionally pass in integers with the keyword arguments `width` and `length`
-  - Has a function `get_category` that returns the `category` class variable
+  - Has a function `get_category` that returns `"Decor"`
   - Has a stringify method that returns `"An object of type Decor with id <id value>. It takes up a <width value> by <length value> sized space."`
     - For example, if we had a `Decor` instance with an `id` of `123435`, `width` of `3`, and `length` of `7`, its stringify method should return `"An object of type Decor with id 12345. It takes up a 3 by 7 sized space."`
 - `Electronics`
   - Has an attribute `id` that is by default a unique integer
-  - Has a class variable `category` The value of the variable should be the name of the class, i.e. "Electronics".
   - Has an attribute `type` that is by default the string "Unknown"
     - This attribute describes what kind of electronic device this is. Some example values might be `“Kitchen Appliance”`, `“Game Console”`, or `“Health Tracker”`
     - When we initialize an instance of `Electronics`, we can optionally pass in a string with the keyword argument `type`
-  - Has a function `get_category` that returns the `category` class variable
+  - Has an function `get_category` that returns `"Electronics"`
   - Has a stringify method that returns `"An object of type Electronics with id <id value>. This is a <type value> device."`
     - For example, if we had an `Electronics` instance with an `id` of `123435` and `type` attribute of `"Mobile Phone"`, its stringify method should return `"An object of type Electronics with id 12345. This is a Mobile Phone device."`
 
