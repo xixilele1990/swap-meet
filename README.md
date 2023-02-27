@@ -85,8 +85,9 @@ In Wave 2 we will create the `Item` class and the `Vendor` class' `get_by_id` me
 - Inside this module, there is a class named `Item`
 - Each `Item` will have an attribute named `id`, which is a unique integer by default
   - There are many ways to generate numbers, but generating numbers without duplicates takes some care. Happily, Python has a package called `uuid` that can help!
-    - If we import the [`uuid` package](https://docs.python.org/3/library/uuid.html) in `item.py`, with a little research we can use one of the functions `uuid` provides to create large unique numbers meant to be used as identifiers
-    - This package creates `UUID` objects, its functions don't directly return an integer, **but** `UUID` instances have [an attribute `int`](https://docs.python.org/3/library/uuid.html#uuid.UUID.int) which allow us to access their value as an integer
+    - If we import the [`uuid` package](https://docs.python.org/3/library/uuid.html) in `item.py`, with a little research we can use one of the functions `uuid` provides to create large ***unique*** numbers meant to be used as identifiers
+    - Specifically, you'll need to choose which of the `uuid` package's functions to use, so be sure to consider which function will work best for creating a unique integer
+    - Note that this package's functions return `UUID` objects, not integers as such, **but** `UUID` objects have [an attribute `int`](https://docs.python.org/3/library/uuid.html#uuid.UUID.int) which allow us to access their value as an integer
 - When we initialize an instance of `Item`, we can optionally pass in an integer with the keyword argument `id` to manually set the `Item`'s `id`
 - Each `Item` will have a function named `get_category`, which will return a string holding the name of the class
 
@@ -101,7 +102,7 @@ In Wave 3 we will write a method to stringify (convert to a string) an `Item` us
 
 - When we stringify an instance of `Item` using `str()`, it returns `"An object of type Item with id <id value>"`, where `<id value>` is the `id` of the `Item` instance that `str()` was called on.
   - For example, if we had an `Item` instance `item_a = Item(id=12345)`, the output of `str(item_a)` should be `"An object of type Item with id 12345"`.
-  - This implies `Item` overrides its stringify method. We may need to research the `__str__` method for more details!
+  - To accomplish this, you'll want to investigate what calling `str()` on a class instance does and how you can override such a method. This type of overriding is known as "operator overloading", put simply, it means that the same method exhibits different behavior across instances of different classes. A simple example would be something like `+` which for strings means "concatenate" but for numbers, means "add", or for lists, means "combine".
 
 The remaining tests in wave 3 imply:
 
