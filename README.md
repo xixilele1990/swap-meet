@@ -15,7 +15,7 @@
 
 You want to organize a swap meet! You own a lot of things. So do your friends! It would be awesome if each person could swap one of their things with another person's things.
 
-For this event, you want each person to register online as a vendor. Also, they should list an inventory list of things.
+For this event, you want each person to register online as a vendor. Also, they should be able to add a list of things as their inventory.
 
 You envision an app where vendors can swap items between different inventories. But what would that backend logic look like?
 
