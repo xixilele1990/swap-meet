@@ -100,8 +100,8 @@ In Wave 2 we will create the `Item` class and the `Vendor` class' `get_by_id` me
 
 In Wave 3 we will write a method to stringify (convert to a string) an `Item` using `str()` and write the method `swap_items`.
 
-- When we stringify an instance of `Item` using `str()`, it returns `"An object of type Item with id <id value>"`, where `<id value>` is the `id` of the `Item` instance that `str()` was called on.
-  - For example, if we had an `Item` instance `item_a = Item(id=12345)`, the output of `str(item_a)` should be `"An object of type Item with id 12345"`.
+- When we stringify an instance of `Item` using `str()`, it returns `"An object of type Item with id <id value>."`, where `<id value>` is the `id` of the `Item` instance that `str()` was called on.
+  - For example, if we had an `Item` instance `item_a = Item(id=12345)`, the output of `str(item_a)` should be `"An object of type Item with id 12345."`.
   - To accomplish this, you'll want to investigate what calling `str()` on a class instance does and how you can override such a method. This type of overriding is known as "operator overloading", put simply, it means that the same method exhibits different behavior across instances of different classes. A simple example would be something like `+` which for strings means "concatenate" but for numbers, means "add", or for lists, means "combine".
 
 The remaining tests in wave 3 imply:
