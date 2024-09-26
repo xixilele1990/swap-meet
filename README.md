@@ -35,8 +35,6 @@ The integration tests for this project are in the directory `tests/integration_t
 
 For more on different types of software testing, [here is a helpful resource](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing).
 
-*The integration tests use the package `pytest-integration`. To insure that `pytest` is using the version installed in your `venv` and not the globally installed `pytest`, deactivate and reactive your virtual environment after you've installed the requirements. This step is important to make sure the integration tests run after the unit tests.*
-
 ## Code Coverage
 
 Code coverage is a term used to describe how much application code is executed when a particular test suite is run. It is a good practice to check our code coverage, to understand how much of our code is exercised by tests vs how much is still untested. A test suite with a high percentage of coverage is likely to be testing more throughly and have fewer bugs. A code coverage tool can partner with our testing suite to give us a report illustrating the coverage of our tests.
