@@ -123,7 +123,7 @@ In Wave 4 we will write one method, `swap_first_item`.
   - It takes one argument: an instance of another `Vendor` (`other_vendor`), representing the friend that the vendor is swapping with
   - This method considers the first item in the instance's `inventory`, and the first item in the friend's `inventory`
   - It removes the first item from its `inventory`, and adds the friend's first item
-  - It removes the first item from the friend's `inventory`, and adds the instances first item
+  - It removes the first item from the friend's `inventory`, and adds the instances' first item
   - It returns `True`
   - If either itself or the friend have an empty `inventory`, the method returns `False`
 
