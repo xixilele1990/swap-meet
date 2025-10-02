@@ -49,12 +49,8 @@ class Vendor:
         temp_high_condition =-1
         for item in self.inventory:
             if item.get_category() == category and item.condition > temp_high_condition:
-                
                 temp_high_condition = item.condition
-                
                 best = item
-                
-                    
         return best
     
     
