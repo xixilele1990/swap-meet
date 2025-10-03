@@ -1,7 +1,7 @@
 import uuid
 
 class Item:
-    def __init__(self, id = None, condition = 0):
+    def __init__(self, id=None, condition=0):
         if id is None:
             self.id = uuid.uuid4().int
         else:
@@ -15,15 +15,15 @@ class Item:
         return f"An object of type {self.get_category()} with id {self.id}."
     
     def condition_description(self):
-        if self.condition == 5:
-            return "New"
-        elif self.condition == 4:
-            return "Like New"
-        elif self.condition == 3:
-            return "Good"
-        elif self.condition == 2:
-            return "Fair"
-        elif self.condition == 1:
+        if self.condition == 0:
+            return "No conditon is provided"
+        elif self.condition > 0 and self.condition <= 1 :
             return "Poor"
-        else:
-            return "Unknown"
+        elif self.condition <= 2 :
+            return "Fair"
+        elif self.condition <=3 :
+            return "Good"
+        elif self.condition <= 4 :
+            return "Very Good"
+        elif self.condition <=5  :
+            return "Like New"

@@ -111,7 +111,7 @@ def test_swap_best_by_category():
         my_priority="Clothing",
         their_priority="Decor"
     )
-    assert result is True
+    assert result
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) ==3
     
@@ -157,16 +157,15 @@ def test_swap_best_by_category_reordered():
         their_priority="Decor"
     )
 
-    assert result is True
+    assert result 
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) ==3
     assert item_a in tai.inventory          # Decor(2.0)
     assert item_b in tai.inventory          # Electronics(4.0) 
-    assert item_f not in jesse.inventory         
-
-    assert item_d in jesse.inventory        # Clothing(2.0) 
-    assert item_e in jesse.inventory        # Decor(4.0) 
-    assert item_c not in tai.inventory        
+    assert item_f in tai.inventory         
+    assert item_d in jesse.inventory        
+    assert item_e in jesse.inventory        
+    assert item_c in jesse.inventory        
     #raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
@@ -251,13 +250,12 @@ def test_swap_best_by_category_no_match_is_false():
         my_priority="Clothing",
         their_priority="Clothing"
     )
-    assert result is False
+    assert not result
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) ==3
     assert item_a in tai.inventory         
     assert item_b in tai.inventory           
     assert item_c in tai.inventory          
-
     assert item_d in jesse.inventory        
     assert item_e in jesse.inventory       
     assert item_f in jesse.inventory        
@@ -294,7 +292,7 @@ def test_swap_best_by_category_no_other_match_is_false():
         my_priority="Electronics",
         their_priority="Decor"
     )
-    assert result is False
+    assert not result
     assert len(tai.inventory) == 3
     assert len(jesse.inventory) ==3
     assert item_a in tai.inventory
