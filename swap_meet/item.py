@@ -1,7 +1,7 @@
 import uuid
 
 class Item:
-    def __init__(self, id = None, condition=0):
+    def __init__(self, id=None, condition=0):
         if id is None:
             self.id = uuid.uuid4().int
         else:
@@ -28,4 +28,4 @@ class Item:
         elif self.condition <=5  :
             return "Like New"
             
-       
+        
